@@ -3,18 +3,28 @@
     <div class="content-wrapper">
       <transition name="fade">
         <div v-if="currentStep === 'title'" class="title">
-          by {{ splashConfig.uiCreditName }}
+          {{ splashConfig.title }}
         </div>
       </transition>
       <transition name="fade">
         <div v-if="currentStep === 'content'" class="content">
           <img :src="splashConfig.logoPath" :height="splashConfig.logoHeight" class="logo">
           <div class="credit-section">
-            <div class="credit-text">
-              <span>{{ splashConfig.uiCredit }}</span>
-              <span class="credit-name">{{ splashConfig.uiCreditName }}</span>
+            <div class="credit-content">
+              <div class="social-links">
+                <a v-for="link in splashConfig.socialLinks" :key="link.text" :href="link.url" class="social-link">
+                  <i :class="'fas fa-' + link.icon"></i>
+                  <span>{{ link.text }}</span>
+                </a>
+              </div>
+              <div class="credit-info">
+                <div class="credit-text">
+                  <span>{{ splashConfig.uiCredit }}</span>
+                  <span class="credit-name">{{ splashConfig.uiCreditName }}</span>
+                </div>
+                <img :src="splashConfig.uiCreditImagePath" class="credit-image" alt="Credit">
+              </div>
             </div>
-            <img :src="splashConfig.uiCreditImagePath" class="credit-image" alt="Credit">
           </div>
         </div>
       </transition>
@@ -81,10 +91,49 @@ onMounted(() => {
 }
 
 .credit-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.credit-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.social-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.credit-info {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #3b82f6;
+}
+
+.social-link i {
+  font-size: 1.6rem;
+  width: 30px;
 }
 
 .credit-text {

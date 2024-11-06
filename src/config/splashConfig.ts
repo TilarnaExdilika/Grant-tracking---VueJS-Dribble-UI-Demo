@@ -1,6 +1,7 @@
 interface SocialLink {
   icon: string
   text: string
+  url?: string
 }
 
 interface SplashConfigType {
@@ -15,13 +16,26 @@ interface SplashConfigType {
 
 export const SplashConfig: SplashConfigType = {
   title: 'by Tilarna',
-  logoPath: '/src/assets/logo.svg',
+  logoPath: '/src/assets/logo.png',
   logoHeight: 150,
   socialLinks: [
-    { icon: 'facebook', text: 'Facebook' },
-    { icon: 'twitter', text: 'Twitter' },
+    {
+      icon: 'brands fa-github',
+      text: 'TilarnaExdilika',
+      url: 'https://github.com/TilarnaExdilika',
+    },
+    {
+      icon: 'brands fa-discord',
+      text: '_tilarna',
+      url: 'https://discord.com/_tilarna',
+    },
+    {
+      icon: 'brands fa-facebook-messenger',
+      text: 'IShino.Avery',
+      url: 'https://m.me/IShino.Avery',
+    },
   ],
   uiCredit: 'UI Design by',
-  uiCreditName: 'Tilarna',
+  uiCreditName: 'Sok Studio',
   uiCreditImagePath: '/src/assets/dribble_author.png',
 }
