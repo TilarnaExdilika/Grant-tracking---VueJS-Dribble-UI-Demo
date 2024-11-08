@@ -1,13 +1,16 @@
 <template>
   <div class="dashboard">
-    <div class="header-bar">
-      <!-- Nội dung header bar -->
-    </div>
-    <div class="container">
-      <!-- Nội dung container -->
-    </div>
+    <HeaderBar />
+    <BaseContent>
+
+    </BaseContent>
   </div>
 </template>
+
+<script setup lang="ts">
+import HeaderBar from '@/components/layout/HeaderBar.vue'
+import BaseContent from '@/components/layout/BaseContent.vue'
+</script>
 
 <style scoped>
 .dashboard {
@@ -16,19 +19,5 @@
   background-color: var(--backgroundMain);
   display: flex;
   flex-direction: column;
-}
-
-.header-bar {
-  height: 100px;
-  width: 100%;
-  background: transparent;
-}
-
-.container {
-  flex: 1;
-  background-color: var(--backgroundSecondary);
-  padding: 20px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
 }
 </style>
