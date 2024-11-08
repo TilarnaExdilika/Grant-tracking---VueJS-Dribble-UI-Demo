@@ -52,7 +52,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1a1a1a;
+  background-color: var(--backgroundMain);
 }
 
 .content-wrapper {
@@ -73,7 +73,7 @@ onMounted(() => {
 }
 
 .title {
-  color: white;
+  color: var(--active_text);
   font-size: 2.5rem;
   font-weight: 300;
 }
@@ -121,14 +121,14 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: white;
+  color: var(--active_text);
   text-decoration: none;
   font-size: 1.4rem;
   transition: color 0.3s ease;
 }
 
 .social-link:hover {
-  color: #3b82f6;
+  color: var(--unactive_text);
 }
 
 .social-link i {
@@ -137,7 +137,7 @@ onMounted(() => {
 }
 
 .credit-text {
-  color: white;
+  color: var(--active_text);
   font-size: 1.2rem;
 }
 

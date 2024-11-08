@@ -1,20 +1,34 @@
 <template>
   <div class="dashboard">
-    <h1>Welcome to Dashboard</h1>
+    <div class="header-bar">
+      <!-- Nội dung header bar -->
+    </div>
+    <div class="container">
+      <!-- Nội dung container -->
+    </div>
   </div>
 </template>
 
-<script setup>
-</script>
-
 <style scoped>
 .dashboard {
-  padding: 20px;
   height: 100vh;
-  background-color: white;
+  padding: 2px 10px 0 10px;
+  background-color: var(--backgroundMain);
+  display: flex;
+  flex-direction: column;
 }
 
-h1 {
-  color: #333;
+.header-bar {
+  height: 100px;
+  width: 100%;
+  background: transparent;
+}
+
+.container {
+  flex: 1;
+  background-color: var(--backgroundSecondary);
+  padding: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 </style>
