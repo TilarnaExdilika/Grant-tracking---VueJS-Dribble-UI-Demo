@@ -16,7 +16,7 @@ interface SplashConfigType {
 
 export const SplashConfig: SplashConfigType = {
   title: 'by Tilarna',
-  logoPath: '/src/assets/logo.png',
+  logoPath: '/src/assets/images/logo.png',
   logoHeight: 150,
   socialLinks: [
     {
@@ -37,5 +37,5 @@ export const SplashConfig: SplashConfigType = {
   ],
   uiCredit: 'UI Design by',
   uiCreditName: 'Sok Studio',
-  uiCreditImagePath: '/src/assets/dribble_author.png',
+  uiCreditImagePath: '/src/assets/images/dribble_author.png',
 }
