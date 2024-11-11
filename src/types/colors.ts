@@ -4,4 +4,6 @@ export interface Colors {
   backgroundContainer: string
   unactive_text: string
   active_text: string
+  button_color: string
+  border: string
 }

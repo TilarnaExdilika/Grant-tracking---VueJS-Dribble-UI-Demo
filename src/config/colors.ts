@@ -6,4 +6,6 @@ export const colors: Colors = {
   backgroundContainer: '#28282a',
   unactive_text: '#898b99',
   active_text: '#fcfbfd',
+  button_color: '#43495d',
+  border: '#6e7080',
 }

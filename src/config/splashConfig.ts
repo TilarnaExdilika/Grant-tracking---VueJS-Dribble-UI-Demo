@@ -36,6 +36,6 @@ export const SplashConfig: SplashConfigType = {
     },
   ],
   uiCredit: 'UI Design by',
-  uiCreditName: 'Sok Studio',
+  uiCreditName: 'George Lov',
   uiCreditImagePath: '/src/assets/images/dribble_author.png',
 }
