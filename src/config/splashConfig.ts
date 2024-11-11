@@ -5,6 +5,7 @@ interface SocialLink {
 }
 
 interface SplashConfigType {
+  enable_splash: boolean
   title: string
   logoPath: string
   logoHeight: number
@@ -15,6 +16,7 @@ interface SplashConfigType {
 }
 
 export const SplashConfig: SplashConfigType = {
+  enable_splash: true,
   title: 'by Tilarna',
   logoPath: '/src/assets/images/logo.png',
   logoHeight: 150,
