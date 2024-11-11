@@ -11,6 +11,14 @@
     <button class="creator-button">
       Creator
     </button>
+    <div class="toggle-buttons">
+      <button class="toggle-button">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+      <button class="toggle-button">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -79,6 +87,30 @@ import { assets } from '@/config/assets'
 
 .creator-button:hover {
   opacity: 0.9;
+}
+
+.toggle-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  animation: fadeInLeft 0.5s ease forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.toggle-button {
+  background: transparent;
+  border: none;
+  color: var(--unactive_text);
+  cursor: pointer;
+  padding: 1px;
+  font-size: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.toggle-button:hover {
+  color: var(--active_text);
 }
 
 @keyframes fadeInLeft {

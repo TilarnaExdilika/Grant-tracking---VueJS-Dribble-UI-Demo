@@ -36,7 +36,7 @@ const toggleDrawer = () => {
 
 <style scoped>
 .header-bar {
-  height: 80px;
+  height: 70px;
   width: 100%;
   background: transparent;
 }
