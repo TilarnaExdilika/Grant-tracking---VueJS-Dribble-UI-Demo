@@ -13,7 +13,7 @@
     </button>
     <div class="toggle-buttons">
       <button class="toggle-button">
-        <i class="icon-woman"></i>
+        <i class="fas fa-chevron-up"></i>
       </button>
       <button class="toggle-button">
         <i class="fas fa-chevron-down"></i>
