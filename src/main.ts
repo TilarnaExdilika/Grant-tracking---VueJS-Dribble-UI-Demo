@@ -3,7 +3,8 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import '@fortawesome/fontawesome-free/css/all.css'
-import '@/assets/fonts/fonts.css'
+import '@/assets/styles/fonts.css'
+import '@/assets/styles/broken.css'
 import { colors } from '@/config/colors'
 
 Object.entries(colors).forEach(([key, value]) => {

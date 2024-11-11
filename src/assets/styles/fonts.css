@@ -28,23 +28,6 @@
   font-weight: 700;
 }
 
-@font-face {
-  font-family: 'broken';
-  src: url('../fonts/broken.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-.icon {
-  font-family: 'broken' !important;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-
 :root {
   --font-family: 'Lexend Deca', sans-serif;
 }
