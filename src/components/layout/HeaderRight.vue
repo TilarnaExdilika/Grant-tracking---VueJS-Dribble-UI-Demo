@@ -1,12 +1,12 @@
 <template>
   <div class="right-header">
     <button class="create-grant-btn">
-      <i class="fas fa-cloud-upload-alt"></i>
+      <i class="fas fa-folder-plus"></i>
       Create grant
     </button>
 
     <button class="icon-btn">
-      <i class="fas fa-bell"></i>
+      <i class="fas fa-comments"></i>
       <span class="notification-dot"></span>
     </button>
 
@@ -23,11 +23,11 @@ import { assets } from '@/config/assets'
 <style scoped>
 .right-header {
   border-radius: 12px;
-  padding: 3px;
+  padding: 4px;
   background-color: var(--backgroundSecondary);
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -58,7 +58,6 @@ import { assets } from '@/config/assets'
   height: 38px;
   border-radius: 8px;
   border: none;
-  padding: 1.8px;
   background: var(--border_gradient);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -79,6 +78,10 @@ import { assets } from '@/config/assets'
   font-size: 1.2rem;
   position: relative;
   z-index: 1;
+  color: var(--unactive_text);
+}
+
+.icon-btn:hover i {
   color: var(--active_text);
 }
 
@@ -89,7 +92,7 @@ import { assets } from '@/config/assets'
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #4CAF50;
+  background-color: var(--cyan);
   border: 2px solid var(--backgroundMain);
   z-index: 1;
 }
@@ -104,10 +107,6 @@ import { assets } from '@/config/assets'
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease;
-}
-
-.avatar-btn:hover {
-  border-color: var(--active_text);
 }
 
 .avatar-img {

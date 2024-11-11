@@ -32,26 +32,26 @@ import { assets } from '@/config/assets'
   min-width: 200px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .logo-section {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   animation: fadeInLeft 0.5s ease forwards, spin 20s linear infinite;
 }
 
 .brand-text {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 1.2rem;
+  gap: 4px;
+  font-size: 1.1rem;
 }
 
 .brand-main {
@@ -72,18 +72,19 @@ import { assets } from '@/config/assets'
 }
 
 .creator-button {
-  background-color: var(--button_color);
+  background-color: var(--creator_button_color);
   color: var(--active_text);
-  border: none;
-  padding: 6px 15px;
+  border: 2px solid var(--creator_button_color_border);
+  padding: 4px 12px;
   border-radius: 15px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
   animation: fadeInLeft 0.5s ease forwards;
   animation-delay: 0.5s;
   opacity: 0;
 }
+
 
 .creator-button:hover {
   opacity: 0.9;
