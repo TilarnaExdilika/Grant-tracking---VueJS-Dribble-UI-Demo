@@ -57,25 +57,29 @@ import { assets } from '@/config/assets'
   width: 38px;
   height: 38px;
   border-radius: 8px;
-  border: 1.8px solid var(--border);
-  background: var(--button_gradient);
-  color: var(--active_text);
+  border: none;
+  padding: 1.8px;
+  background: var(--border_gradient);
   cursor: pointer;
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
 }
 
-.icon-btn:hover {
-  border-color: var(--active_text);
-  opacity: 0.9;
-
+.icon-btn::before {
+  content: '';
+  position: absolute;
+  top: 1.8px;
+  left: 1.8px;
+  right: 1.8px;
+  bottom: 1.8px;
+  background: var(--button_gradient);
+  border-radius: 6px;
 }
 
 .icon-btn i {
   font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+  color: var(--active_text);
 }
 
 .notification-dot {
@@ -87,6 +91,7 @@ import { assets } from '@/config/assets'
   border-radius: 50%;
   background-color: #4CAF50;
   border: 2px solid var(--backgroundMain);
+  z-index: 1;
 }
 
 .avatar-btn {

@@ -5,7 +5,8 @@ export interface Colors {
   unactive_text: string
   active_text: string
   button_color: string
-  border: string
   button_gradient: string
+  border: string
+  border_gradient: string
   black: string
 }
