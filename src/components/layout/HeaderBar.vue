@@ -6,9 +6,7 @@
       <div class="navigation-header">
         <!-- Navigation links -->
       </div>
-      <div class="right-header">
-        <!-- Right header content -->
-      </div>
+      <HeaderRight />
     </div>
 
     <!-- Mobile layout -->
@@ -25,6 +23,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import HeaderLeft from './HeaderLeft.vue'
+import HeaderRight from './HeaderRight.vue'
 import MobileDrawer from './MobileDrawer.vue'
 
 const isDrawerOpen = ref(false)
@@ -45,7 +44,7 @@ const toggleDrawer = () => {
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 5px;
 }
 
 .desktop-layout {
@@ -59,8 +58,6 @@ const toggleDrawer = () => {
 }
 
 .right-header {
-  background-color: #F0FFF0;
-  padding: 15px;
   min-width: 200px;
 }
 

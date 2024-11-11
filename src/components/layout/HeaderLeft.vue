@@ -44,7 +44,7 @@ import { assets } from '@/config/assets'
 .logo {
   width: 50px;
   height: 50px;
-  animation: fadeInLeft 0.5s ease forwards;
+  animation: fadeInLeft 0.5s ease forwards, spin 20s linear infinite;
 }
 
 .brand-text {
@@ -122,6 +122,16 @@ import { assets } from '@/config/assets'
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 </style>
