@@ -4,7 +4,7 @@
     <div class="header-content desktop-layout">
       <div class="left-header">
         <div class="logo-section">
-          <img src="@/assets/images/logo.png" alt="Logo" class="logo">
+          <img :src="assets.images.logo" alt="Logo" class="logo">
           <div class="brand-text">
             <span class="brand-main">Lumify</span>
             <span class="brand-separator">/</span>
@@ -29,7 +29,7 @@
     <div class="header-content mobile-layout">
       <div class="left-header">
         <div class="logo-section">
-          <img src="@/assets/images/logo.png" alt="Logo" class="logo">
+          <img :src="assets.images.logo" alt="Logo" class="logo">
           <div class="brand-text">
             <span class="brand-main">Lumify</span>
             <span class="brand-separator">/</span>
@@ -58,18 +58,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isDrawerOpen: false
-    }
-  },
-  methods: {
-    toggleDrawer() {
-      this.isDrawerOpen = !this.isDrawerOpen
-    }
-  }
+<script setup lang="ts">
+import { ref } from 'vue'
+import { assets } from '@/config/assets'
+
+const isDrawerOpen = ref(false)
+
+const toggleDrawer = () => {
+  isDrawerOpen.value = !isDrawerOpen.value
 }
 </script>
 

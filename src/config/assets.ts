@@ -1,7 +1,7 @@
-import { Assets } from '@/types/assets'
+import logo from '@/assets/images/logo.png'
 
-export const assets: Assets = {
+export const assets = {
   images: {
-    logo: '/images/logo.png',
+    logo: logo,
   },
 }
