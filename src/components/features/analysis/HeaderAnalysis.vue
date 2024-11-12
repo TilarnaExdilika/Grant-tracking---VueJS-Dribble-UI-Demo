@@ -34,12 +34,23 @@
         <span>Infeasible programs</span>
         <ToggleSwitch v-model="showInfeasible" />
       </div>
+      <div class="avatar-stack">
+        <div v-for="member in teamMembers.slice(0, visibleMembers)" :key="member.id" class="avatar-wrapper"
+          :title="member.name">
+          <img :src="member.avatar" :alt="member.name" class="avatar">
+        </div>
+        <div v-if="remainingMembers > 0" class="avatar-wrapper remaining">
+          <span>+{{ remainingMembers }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import ToggleSwitch from '@/components/common/ToggleSwitch.vue'
+import { assets } from '@/config/assets'
+import users from '@/data/users.json'
 
 export default {
   name: 'HeaderAnalysis',
@@ -49,7 +60,15 @@ export default {
   data() {
     return {
       quarter: 'Q3',
-      showInfeasible: false
+      showInfeasible: false,
+      assets,
+      teamMembers: users.teamMembers,
+      visibleMembers: 3 // Số lượng avatar hiển thị
+    }
+  },
+  computed: {
+    remainingMembers() {
+      return Math.max(0, this.teamMembers.length - this.visibleMembers)
     }
   }
 }
@@ -60,7 +79,6 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
   color: var(--unactive_text);
 }
 
@@ -69,6 +87,7 @@ export default {
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .responsive-group {
@@ -170,7 +189,69 @@ h1 {
 
   .right-section {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-end;
+  }
+}
+
+.avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-wrapper {
+  margin-left: -8px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.avatar-wrapper:first-child {
+  margin-left: 0;
+}
+
+.avatar-wrapper:hover {
+  transform: translateY(-4px);
+  z-index: 2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  display: block;
+}
+
+.remaining {
+  width: 32px;
+  height: 32px;
+  background: var(--button_gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--active_text);
+}
+
+@media screen and (max-width: 768px) {
+  .avatar-stack {
+    margin-left: 12px;
+  }
+
+  .avatar-wrapper {
+    margin-left: -6px;
+  }
+
+  .avatar,
+  .remaining {
+    width: 28px;
+    height: 28px;
+  }
+
+  .remaining {
+    font-size: 11px;
   }
 }
 </style>

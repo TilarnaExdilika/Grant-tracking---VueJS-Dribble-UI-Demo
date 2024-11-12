@@ -1,0 +1,34 @@
+{
+  "teamMembers": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "avatar": "/images/avatars/avt1.png",
+      "role": "Project Manager"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Johnson",
+      "avatar": "/images/avatars/avt2.png",
+      "role": "Financial Analyst"
+    },
+    {
+      "id": 3,
+      "name": "Michael Chen",
+      "avatar": "/images/avatars/avt3.png",
+      "role": "Data Scientist"
+    },
+    {
+      "id": 4,
+      "name": "Emma Wilson",
+      "avatar": "/images/avatars/avt1.png",
+      "role": "Business Analyst"
+    },
+    {
+      "id": 5,
+      "name": "David Lee",
+      "avatar": "/images/avatars/avt1.png",
+      "role": "Financial Advisor"
+    }
+  ]
+}
