@@ -1,5 +1,5 @@
 <template>
-  <div class="right-header">
+  <div class="navigation fade-in">
     <BorderButton :active="navigation.currentTab === 'overview'" @click="navigation.setCurrentTab('overview')">
       <i class="fas fa-home"></i>
       <span> Overview</span>
@@ -31,7 +31,7 @@ const navigation = useNavigationStore()
 </script>
 
 <style scoped>
-.right-header {
+.navigation {
   border-radius: 12px;
   padding: 4px;
   background-color: var(--backgroundSecondary);
@@ -39,5 +39,18 @@ const navigation = useNavigationStore()
   align-items: center;
   gap: 5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
