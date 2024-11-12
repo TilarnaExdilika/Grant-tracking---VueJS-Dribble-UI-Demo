@@ -17,7 +17,7 @@
       <span> Clients</span>
     </BorderButton>
     <BorderButton class="ai-strategy-button" :active="navigation.currentTab === 'ai-strategy'"
-      @click="navigation.setCurrentTab('ai-strategy')">
+      @click="navigation.setCurrentTab('ai-strategy')" :style="{ '--galaxy-bg': `url(${assets.images.ai_bg})` }">
       <i class="fas fa-robot"></i>
       <span> AI Strategy</span>
     </BorderButton>
@@ -27,6 +27,7 @@
 <script setup lang="ts">
 import BorderButton from '@/components/common/BorderButton.vue'
 import { useNavigationStore } from '@/stores/navigation'
+import { assets } from '@/config/assets'
 
 const navigation = useNavigationStore()
 </script>
@@ -67,10 +68,10 @@ const navigation = useNavigationStore()
   left: 1.8px;
   right: 1.8px;
   bottom: 1.8px;
-  background-image: url('@/assets/images/galaxy.gif');
+  background-image: var(--galaxy-bg);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  opacity: 0.7;
   border-radius: 6px;
   z-index: 0;
 }
