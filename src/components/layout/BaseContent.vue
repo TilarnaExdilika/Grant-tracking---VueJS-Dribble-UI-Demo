@@ -8,7 +8,7 @@
 .base-content {
   flex: 1;
   background-color: var(--backgroundSecondary);
-  padding: 20px;
+  padding: 10px 0px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
