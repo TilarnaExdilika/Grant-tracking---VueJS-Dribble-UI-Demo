@@ -41,7 +41,7 @@ import { assets } from '@/config/assets'
   padding: 0 14px;
   border: none;
   border-radius: 8px;
-  background: var(--create_grant_border);
+  background: var(--gradient_grey_border);
   cursor: pointer;
   transition: all 0.3s ease;
   animation: fadeInRight 0.5s ease forwards;
@@ -56,7 +56,7 @@ import { assets } from '@/config/assets'
   left: 1.8px;
   right: 1.8px;
   bottom: 1.8px;
-  background: var(--create_grant_color);
+  background: var(--gradient_grey_color);
   border-radius: 6px;
 }
 

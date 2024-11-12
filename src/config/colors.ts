@@ -13,9 +13,8 @@ export const colors: Colors = {
   // Objects
   creator_button_color: '#43495d',
   creator_button_color_border: '#4b5268',
-  create_grant_color: 'linear-gradient(to bottom, #9fa5af, #585c68)',
-  create_grant_border: 'linear-gradient(to bottom, #959ba5, #5e626e)',
-
+  gradient_grey_color: 'linear-gradient(to bottom, #9fa5af, #585c68)',
+  gradient_grey_border: 'linear-gradient(to bottom, #959ba5, #5e626e)',
   // Containers
   button_gradient: 'linear-gradient(145deg, #2a2a2a, #3a3a3a)',
   border: '#4a4b57',
@@ -23,5 +22,8 @@ export const colors: Colors = {
 
   // Base
   black: '#000000',
-  cyan: '#00ffff',
+  cyan: '#5bd0e4',
+  purple: '#93a0ff',
+  green: '#95d3be',
+  darkBlue: '#5f6a88',
 }

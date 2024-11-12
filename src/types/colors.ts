@@ -6,12 +6,15 @@ export interface Colors {
   active_text: string
   creator_button_color: string
   creator_button_color_border: string
-  create_grant_color: string
-  create_grant_border: string
+  gradient_grey_color: string
+  gradient_grey_border: string
   button_gradient: string
   border: string
   border_gradient: string
   // Base Colors
   black: string
   cyan: string
+  purple: string
+  green: string
+  darkBlue: string
 }
