@@ -67,6 +67,7 @@ defineProps({
   padding: 20px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   border-top-left-radius: 20px;
+  z-index: 1000;
 }
 
 .drawer-open {
