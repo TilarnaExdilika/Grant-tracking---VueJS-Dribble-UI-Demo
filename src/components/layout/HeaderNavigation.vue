@@ -1,23 +1,23 @@
 <template>
   <div class="right-header">
     <BorderButton>
-      <i class="fas fa-comments"></i>
+      <i class="fas fa-home"></i>
       <span> Overview</span>
     </BorderButton>
     <BorderButton active>
-      <i class="fas fa-comments"></i>
+      <i class="fas fa-chart-bar"></i>
       <span> Analysis</span>
     </BorderButton>
     <BorderButton>
-      <i class="fas fa-comments"></i>
+      <i class="fas fa-handshake"></i>
       <span> Affiliates</span>
     </BorderButton>
     <BorderButton>
-      <i class="fas fa-comments"></i>
+      <i class="fas fa-users"></i>
       <span> Clients</span>
     </BorderButton>
     <BorderButton has-notification>
-      <i class="fas fa-comments"></i>
+      <i class="fas fa-robot"></i>
       <span> AI Strategy</span>
     </BorderButton>
   </div>
