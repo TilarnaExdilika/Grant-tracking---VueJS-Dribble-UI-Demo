@@ -1,7 +1,9 @@
 <template>
   <label class="switch">
     <input type="checkbox" :checked="modelValue" @input="handleInput">
-    <span class="slider round"></span>
+    <span class="slider">
+      <span class="slider-circle"></span>
+    </span>
   </label>
 </template>
 
@@ -42,34 +44,75 @@ const handleInput = (event) => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--border);
+  border-radius: 34px;
+  background: var(--border_gradient);
   transition: .4s;
 }
 
-.slider:before {
+.slider::before {
+  content: '';
   position: absolute;
-  content: "";
+  top: 1.5px;
+  left: 1.5px;
+  right: 1.5px;
+  bottom: 1.5px;
+  border-radius: 34px;
+  background: var(--button_gradient);
+  transition: opacity 0.3s ease;
+}
+
+.slider-circle {
+  position: absolute;
   height: 16px;
   width: 16px;
   left: 2px;
   bottom: 2px;
-  background-color: var(--backgroundMain);
+  border-radius: 50%;
+  background: var(--gradient_grey_border);
+  transition: .4s;
+}
+
+.slider-circle::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  border-radius: 50%;
+  background: var(--gradient_grey_color);
   transition: .4s;
 }
 
 input:checked+.slider {
-  background-color: var(--active_text);
+  background: var(--unactive_text);
 }
 
-input:checked+.slider:before {
+input:checked+.slider::before {
+  opacity: 0;
+}
+
+input:checked+.slider .slider-circle {
   transform: translateX(20px);
 }
 
-.slider.round {
-  border-radius: 34px;
+input:checked+.slider .slider-circle::before {
+  background: var(--unactive_text);
 }
 
-.slider.round:before {
-  border-radius: 50%;
+input:checked+.slider .slider-circle::after {
+  background: var(--active_text);
+}
+
+@keyframes gradientIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 </style>
