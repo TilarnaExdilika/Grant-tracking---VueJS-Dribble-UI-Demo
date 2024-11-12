@@ -2,7 +2,7 @@
   <div class="right-header">
     <button class="create-grant-btn">
       <i class="fas fa-folder-plus"></i>
-      Create grant
+      <span>Create grant</span>
     </button>
 
     <button class="icon-btn">
@@ -32,24 +32,43 @@ import { assets } from '@/config/assets'
 }
 
 .create-grant-btn {
+  position: relative;
+  width: auto;
+  height: 38px;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 14px;
+  padding: 0 14px;
   border: none;
   border-radius: 8px;
-  background: var(--button_gradient);
-  color: var(--active_text);
+  background: var(--create_grant_border);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.create-grant-btn:hover {
-  opacity: 0.9;
+.create-grant-btn::before {
+  content: '';
+  position: absolute;
+  top: 1.8px;
+  left: 1.8px;
+  right: 1.8px;
+  bottom: 1.8px;
+  background: var(--create_grant_color);
+  border-radius: 6px;
 }
 
 .create-grant-btn i {
   font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+  color: var(--active_text);
+}
+
+.create-grant-btn span {
+  position: relative;
+  z-index: 1;
+  color: var(--active_text);
+  font-size: 14px;
 }
 
 .icon-btn {
@@ -79,6 +98,7 @@ import { assets } from '@/config/assets'
   position: relative;
   z-index: 1;
   color: var(--unactive_text);
+  transition: color 0.3s ease;
 }
 
 .icon-btn:hover i {
