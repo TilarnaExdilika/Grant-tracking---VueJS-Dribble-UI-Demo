@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export type NavigationTab = 'overview' | 'analysis' | 'affiliates' | 'clients' | 'ai-strategy'
 
 export const useNavigationStore = defineStore('navigation', () => {
-  const currentTab = ref<NavigationTab>('overview')
+  const currentTab = ref<NavigationTab>('analysis')
 
   function setCurrentTab(tab: NavigationTab) {
     currentTab.value = tab

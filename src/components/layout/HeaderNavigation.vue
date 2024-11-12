@@ -16,7 +16,8 @@
       <i class="fas fa-users"></i>
       <span> Clients</span>
     </BorderButton>
-    <BorderButton :active="navigation.currentTab === 'ai-strategy'" @click="navigation.setCurrentTab('ai-strategy')">
+    <BorderButton class="ai-strategy-button" :active="navigation.currentTab === 'ai-strategy'"
+      @click="navigation.setCurrentTab('ai-strategy')">
       <i class="fas fa-robot"></i>
       <span> AI Strategy</span>
     </BorderButton>
@@ -52,5 +53,34 @@ const navigation = useNavigationStore()
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+:deep(.ai-strategy-button) {
+  position: relative;
+  overflow: hidden;
+}
+
+:deep(.ai-strategy-button::after) {
+  content: '';
+  position: absolute;
+  top: 1.8px;
+  left: 1.8px;
+  right: 1.8px;
+  bottom: 1.8px;
+  background-image: url('@/assets/images/galaxy.gif');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  border-radius: 6px;
+  z-index: 0;
+}
+
+:deep(.ai-strategy-button.active::after) {
+  opacity: 0.8;
+}
+
+:deep(.ai-strategy-button *) {
+  position: relative;
+  z-index: 1;
 }
 </style>
