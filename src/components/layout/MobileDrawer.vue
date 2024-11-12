@@ -2,6 +2,9 @@
   <div class="mobile-drawer" :class="{ 'drawer-open': isOpen }">
     <div class="right-header-section">
       <HeaderRight />
+      <BorderButton active>
+        <i class="fas fa-download"></i>
+      </BorderButton>
     </div>
     <div class="navigation-section">
       <div class="nav-button" :class="{ active: navigation.currentTab === 'overview' }"
@@ -36,6 +39,7 @@
 
 <script setup lang="ts">
 import HeaderRight from './HeaderRight.vue'
+import BorderButton from '../common/BorderButton.vue'
 import { useNavigationStore } from '@/stores/navigation'
 import { assets } from '@/config/assets'
 
@@ -70,6 +74,9 @@ defineProps({
 }
 
 .right-header-section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   margin-bottom: 30px;
 }
 
@@ -184,16 +191,29 @@ defineProps({
 }
 
 .ai-strategy-button i {
-  background: linear-gradient(45deg, #9d4edd, #f1e6ff);
+  background: var(--gradient_purple_icon);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .ai-strategy-button span:not(.notification-dot) {
-  background: linear-gradient(90deg, #9d4edd, #f1e6ff, #9d4edd);
+  background: var(--gradient_purple_text);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.download-app-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.download-app-btn :deep(i) {
+  margin-right: 8px;
+}
+
+.download-app-btn :deep(span) {
+  font-size: 0.95rem;
 }
 </style>

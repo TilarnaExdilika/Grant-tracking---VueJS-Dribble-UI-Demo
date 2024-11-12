@@ -64,7 +64,7 @@ const navigation = useNavigationStore()
 :deep(.ai-strategy-button i) {
   position: relative;
   z-index: 1;
-  background: linear-gradient(45deg, #9d4edd, #f1e6ff);
+  background: var(--gradient_purple_icon);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -73,21 +73,21 @@ const navigation = useNavigationStore()
 :deep(.ai-strategy-button span) {
   position: relative;
   z-index: 1;
-  background: linear-gradient(90deg, #9d4edd, #f1e6ff, #9d4edd);
+  background: var(--gradient_purple_text);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 :deep(.ai-strategy-button.active i) {
-  background: linear-gradient(45deg, #b088f9, #f8f2ff);
+  background: var(--gradient_purple_icon);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 :deep(.ai-strategy-button.active span) {
-  background: linear-gradient(90deg, #b088f9, #f8f2ff, #b088f9);
+  background: var(--gradient_purple_text);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
