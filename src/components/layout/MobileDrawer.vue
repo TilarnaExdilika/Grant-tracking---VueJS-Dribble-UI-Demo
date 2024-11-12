@@ -4,23 +4,28 @@
       <HeaderRight />
     </div>
     <div class="navigation-section">
-      <div class="nav-button" :class="{ active: currentTab === 'overview' }" @click="setCurrentTab('overview')">
+      <div class="nav-button" :class="{ active: navigation.currentTab === 'overview' }"
+        @click="navigation.setCurrentTab('overview')">
         <i class="fas fa-home"></i>
         <span>Overview</span>
       </div>
-      <div class="nav-button" :class="{ active: currentTab === 'analysis' }" @click="setCurrentTab('analysis')">
+      <div class="nav-button" :class="{ active: navigation.currentTab === 'analysis' }"
+        @click="navigation.setCurrentTab('analysis')">
         <i class="fas fa-chart-bar"></i>
         <span>Analysis</span>
       </div>
-      <div class="nav-button" :class="{ active: currentTab === 'affiliates' }" @click="setCurrentTab('affiliates')">
+      <div class="nav-button" :class="{ active: navigation.currentTab === 'affiliates' }"
+        @click="navigation.setCurrentTab('affiliates')">
         <i class="fas fa-handshake"></i>
         <span>Affiliates</span>
       </div>
-      <div class="nav-button" :class="{ active: currentTab === 'clients' }" @click="setCurrentTab('clients')">
+      <div class="nav-button" :class="{ active: navigation.currentTab === 'clients' }"
+        @click="navigation.setCurrentTab('clients')">
         <i class="fas fa-users"></i>
         <span>Clients</span>
       </div>
-      <div class="nav-button" :class="{ active: currentTab === 'ai-strategy' }" @click="setCurrentTab('ai-strategy')">
+      <div class="nav-button" :class="{ active: navigation.currentTab === 'ai-strategy' }"
+        @click="navigation.setCurrentTab('ai-strategy')">
         <i class="fas fa-robot"></i>
         <span>AI Strategy</span>
         <span class="notification-dot"></span>
@@ -31,9 +36,9 @@
 
 <script setup lang="ts">
 import HeaderRight from './HeaderRight.vue'
-import { useNavigation } from '@/composables/useNavigation'
+import { useNavigationStore } from '@/stores/navigation'
 
-const { currentTab, setCurrentTab } = useNavigation()
+const navigation = useNavigationStore()
 
 defineProps({
   isOpen: {
