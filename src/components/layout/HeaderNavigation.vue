@@ -1,22 +1,22 @@
 <template>
   <div class="right-header">
-    <BorderButton>
+    <BorderButton :active="currentTab === 'overview'" @click="setCurrentTab('overview')">
       <i class="fas fa-home"></i>
       <span> Overview</span>
     </BorderButton>
-    <BorderButton active>
+    <BorderButton :active="currentTab === 'analysis'" @click="setCurrentTab('analysis')">
       <i class="fas fa-chart-bar"></i>
       <span> Analysis</span>
     </BorderButton>
-    <BorderButton>
+    <BorderButton :active="currentTab === 'affiliates'" @click="setCurrentTab('affiliates')">
       <i class="fas fa-handshake"></i>
       <span> Affiliates</span>
     </BorderButton>
-    <BorderButton>
+    <BorderButton :active="currentTab === 'clients'" @click="setCurrentTab('clients')">
       <i class="fas fa-users"></i>
       <span> Clients</span>
     </BorderButton>
-    <BorderButton has-notification>
+    <BorderButton :active="currentTab === 'ai-strategy'" @click="setCurrentTab('ai-strategy')">
       <i class="fas fa-robot"></i>
       <span> AI Strategy</span>
     </BorderButton>
@@ -25,6 +25,9 @@
 
 <script setup lang="ts">
 import BorderButton from '@/components/common/BorderButton.vue'
+import { useNavigation } from '@/composables/useNavigation'
+
+const { currentTab, setCurrentTab } = useNavigation()
 </script>
 
 <style scoped>

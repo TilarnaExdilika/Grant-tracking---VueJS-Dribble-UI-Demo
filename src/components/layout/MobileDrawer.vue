@@ -4,23 +4,23 @@
       <HeaderRight />
     </div>
     <div class="navigation-section">
-      <div class="nav-button">
+      <div class="nav-button" :class="{ active: currentTab === 'overview' }" @click="setCurrentTab('overview')">
         <i class="fas fa-home"></i>
         <span>Overview</span>
       </div>
-      <div class="nav-button active">
+      <div class="nav-button" :class="{ active: currentTab === 'analysis' }" @click="setCurrentTab('analysis')">
         <i class="fas fa-chart-bar"></i>
         <span>Analysis</span>
       </div>
-      <div class="nav-button">
+      <div class="nav-button" :class="{ active: currentTab === 'affiliates' }" @click="setCurrentTab('affiliates')">
         <i class="fas fa-handshake"></i>
         <span>Affiliates</span>
       </div>
-      <div class="nav-button">
+      <div class="nav-button" :class="{ active: currentTab === 'clients' }" @click="setCurrentTab('clients')">
         <i class="fas fa-users"></i>
         <span>Clients</span>
       </div>
-      <div class="nav-button">
+      <div class="nav-button" :class="{ active: currentTab === 'ai-strategy' }" @click="setCurrentTab('ai-strategy')">
         <i class="fas fa-robot"></i>
         <span>AI Strategy</span>
         <span class="notification-dot"></span>
@@ -31,6 +31,9 @@
 
 <script setup lang="ts">
 import HeaderRight from './HeaderRight.vue'
+import { useNavigation } from '@/composables/useNavigation'
+
+const { currentTab, setCurrentTab } = useNavigation()
 
 defineProps({
   isOpen: {
