@@ -44,6 +44,9 @@ import { assets } from '@/config/assets'
   background: var(--create_grant_border);
   cursor: pointer;
   transition: all 0.3s ease;
+  animation: fadeInRight 0.5s ease forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
 }
 
 .create-grant-btn::before {
@@ -80,6 +83,9 @@ import { assets } from '@/config/assets'
   background: var(--border_gradient);
   cursor: pointer;
   transition: all 0.3s ease;
+  animation: fadeInRight 0.5s ease forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
 }
 
 .icon-btn::before {
@@ -127,11 +133,26 @@ import { assets } from '@/config/assets'
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease;
+  animation: fadeInRight 0.5s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 
 .avatar-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 </style>

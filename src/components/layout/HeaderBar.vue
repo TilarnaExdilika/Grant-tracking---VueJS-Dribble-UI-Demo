@@ -3,9 +3,7 @@
     <!-- Desktop layout -->
     <div class="header-content desktop-layout">
       <HeaderLeft />
-      <div class="navigation-header">
-        <!-- Navigation links -->
-      </div>
+      <HeaderNavigation />
       <HeaderRight />
     </div>
 
@@ -23,6 +21,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import HeaderLeft from './HeaderLeft.vue'
+import HeaderNavigation from './HeaderNavigation.vue'
 import HeaderRight from './HeaderRight.vue'
 import MobileDrawer from './MobileDrawer.vue'
 
@@ -49,12 +48,6 @@ const toggleDrawer = () => {
 
 .desktop-layout {
   justify-content: space-between;
-}
-
-.navigation-header {
-  width: 250px;
-  background-color: #E0FFFF;
-  padding: 15px;
 }
 
 .right-header {
