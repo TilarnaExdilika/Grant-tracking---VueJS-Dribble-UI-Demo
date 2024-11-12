@@ -24,8 +24,8 @@
         <i class="fas fa-users"></i>
         <span>Clients</span>
       </div>
-      <div class="nav-button" :class="{ active: navigation.currentTab === 'ai-strategy' }"
-        @click="navigation.setCurrentTab('ai-strategy')">
+      <div class="nav-button ai-strategy-button" :class="{ active: navigation.currentTab === 'ai-strategy' }"
+        @click="navigation.setCurrentTab('ai-strategy')" :style="{ '--galaxy-bg': `url(${assets.images.ai_bg})` }">
         <i class="fas fa-robot"></i>
         <span>AI Strategy</span>
         <span class="notification-dot"></span>
@@ -37,6 +37,7 @@
 <script setup lang="ts">
 import HeaderRight from './HeaderRight.vue'
 import { useNavigationStore } from '@/stores/navigation'
+import { assets } from '@/config/assets'
 
 const navigation = useNavigationStore()
 
@@ -156,5 +157,43 @@ defineProps({
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.ai-strategy-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-strategy-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--galaxy-bg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ai-strategy-button.active::after {
+  opacity: 0.8;
+}
+
+.ai-strategy-button i {
+  background: linear-gradient(45deg, #9d4edd, #f1e6ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ai-strategy-button span:not(.notification-dot) {
+  background: linear-gradient(90deg, #9d4edd, #f1e6ff, #9d4edd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 </style>
