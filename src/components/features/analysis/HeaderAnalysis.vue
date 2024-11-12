@@ -43,19 +43,24 @@
           <span>+{{ remainingMembers }}</span>
         </div>
       </div>
+      <BorderButton :active="true">
+        <i class="fas fa-plus"></i>
+      </BorderButton>
     </div>
   </div>
 </template>
 
 <script>
 import ToggleSwitch from '@/components/common/ToggleSwitch.vue'
+import BorderButton from '@/components/common/BorderButton.vue'
 import { assets } from '@/config/assets'
 import users from '@/data/users.json'
 
 export default {
   name: 'HeaderAnalysis',
   components: {
-    ToggleSwitch
+    ToggleSwitch,
+    BorderButton
   },
   data() {
     return {
@@ -63,7 +68,7 @@ export default {
       showInfeasible: false,
       assets,
       teamMembers: users.teamMembers,
-      visibleMembers: 3 // Số lượng avatar hiển thị
+      visibleMembers: 3
     }
   },
   computed: {
@@ -205,6 +210,49 @@ h1 {
   transition: transform 0.3s ease;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
+}
+
+.avatar-wrapper::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background: var(--border);
+  color: var(--active_text);
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.avatar-wrapper:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.avatar-wrapper::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--border);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 4px;
+}
+
+.avatar-wrapper:hover::before {
+  opacity: 1;
+  visibility: visible;
 }
 
 .avatar-wrapper:first-child {
