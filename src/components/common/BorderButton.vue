@@ -2,14 +2,16 @@
   <button class="border-button" :class="{
     'has-notification': hasNotification,
     'active': active
-  }" @click="$emit('click')">
+  }" :style="buttonStyle" @click="$emit('click')">
     <slot></slot>
     <span v-if="hasNotification" class="notification-dot"></span>
   </button>
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   hasNotification: {
     type: Boolean,
     default: false
@@ -17,18 +19,28 @@ defineProps({
   active: {
     type: Boolean,
     default: false
+  },
+  size: {
+    type: Number,
+    default: 1
   }
 })
+
+const buttonStyle = computed(() => ({
+  '--button-scale': props.size,
+}))
 
 defineEmits(['click'])
 </script>
 
 <style scoped>
 .border-button {
+  --button-scale: 1;
+
   position: relative;
-  min-width: 38px;
-  height: 38px;
-  border-radius: 8px;
+  min-width: calc(38px * var(--button-scale));
+  height: calc(38px * var(--button-scale));
+  border-radius: calc(8px * var(--button-scale));
   border: none;
   background: transparent;
   cursor: pointer;
@@ -44,7 +56,7 @@ defineEmits(['click'])
   right: 1.8px;
   bottom: 1.8px;
   background: transparent;
-  border-radius: 6px;
+  border-radius: calc(6px * var(--button-scale));
   transition: opacity 0.3s ease;
   opacity: 0;
 }
@@ -53,7 +65,7 @@ defineEmits(['click'])
   position: relative;
   z-index: 1;
   transition: color 0.3s ease;
-  font-size: 0.86rem;
+  font-size: calc(0.86rem * var(--button-scale));
   color: var(--unactive_text);
   transform-origin: center;
   animation: scaleIn 0.2s ease;
@@ -83,13 +95,13 @@ defineEmits(['click'])
 
 .notification-dot {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 8px;
-  height: 8px;
+  top: calc(6px * var(--button-scale));
+  right: calc(6px * var(--button-scale));
+  width: calc(8px * var(--button-scale));
+  height: calc(8px * var(--button-scale));
   border-radius: 50%;
   background-color: var(--cyan);
-  border: 2px solid var(--backgroundMain);
+  border: calc(2px * var(--button-scale)) solid var(--backgroundMain);
   z-index: 1;
 }
 

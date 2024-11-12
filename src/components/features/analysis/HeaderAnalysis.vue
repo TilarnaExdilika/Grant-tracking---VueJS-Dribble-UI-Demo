@@ -43,7 +43,7 @@
           <span>+{{ remainingMembers }}</span>
         </div>
       </div>
-      <BorderButton :active="true">
+      <BorderButton :active="true" :size="0.8">
         <i class="fas fa-plus"></i>
       </BorderButton>
     </div>
