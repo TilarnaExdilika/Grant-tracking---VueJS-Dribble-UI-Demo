@@ -86,8 +86,41 @@ defineProps({
   padding: 12px 15px;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
   color: var(--unactive_text);
+  transition: color 0.3s ease;
+  background: transparent;
+  overflow: hidden;
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  right: 100%;
+  bottom: 0;
+  background: var(--button_gradient);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-button>* {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-button:hover::before,
+.nav-button.active::before {
+  left: 0;
+  right: 0;
+}
+
+.nav-button:hover>* {
+  animation: popIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-button:hover,
+.nav-button.active {
+  color: var(--active_text);
 }
 
 .nav-button i {
@@ -96,16 +129,6 @@ defineProps({
 
 .nav-button span {
   font-size: 0.95rem;
-}
-
-.nav-button:hover {
-  color: var(--active_text);
-  background: var(--button_gradient);
-}
-
-.nav-button.active {
-  color: var(--active_text);
-  background: var(--button_gradient);
 }
 
 .notification-dot {
@@ -117,5 +140,21 @@ defineProps({
   border-radius: 50%;
   background-color: var(--cyan);
   border: 2px solid var(--backgroundMain);
+}
+
+@keyframes popIn {
+  0% {
+    transform: translateY(5px);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 </style>

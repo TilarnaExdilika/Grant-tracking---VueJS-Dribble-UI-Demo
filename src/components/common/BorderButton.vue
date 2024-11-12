@@ -45,6 +45,8 @@ defineEmits(['click'])
   bottom: 1.8px;
   background: transparent;
   border-radius: 6px;
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
 .border-button :deep(*) {
@@ -53,6 +55,8 @@ defineEmits(['click'])
   transition: color 0.3s ease;
   font-size: 0.86rem;
   color: var(--unactive_text);
+  transform-origin: center;
+  animation: scaleIn 0.2s ease;
 }
 
 .border-button.active {
@@ -61,6 +65,8 @@ defineEmits(['click'])
 
 .border-button.active::before {
   background: var(--button_gradient);
+  opacity: 1;
+  animation: gradientIn 0.3s ease forwards;
 }
 
 .border-button.active :deep(*) {
@@ -97,5 +103,29 @@ defineEmits(['click'])
 
 .border-button.active:hover :deep(i) {
   color: var(--active_text);
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 </style>
