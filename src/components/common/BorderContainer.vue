@@ -1,15 +1,32 @@
 <template>
-  <div class="border-container">
+  <div class="border-container" :style="containerStyle">
     <slot></slot>
   </div>
 </template>
 
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const props = defineProps({
+  size: {
+    type: Number,
+    default: 1
+  }
+})
+
+const containerStyle = computed(() => ({
+  '--container-scale': props.size,
+}))
+</script>
+
 <style scoped>
 .border-container {
+  --container-scale: 1;
+
   position: relative;
-  width: 300px;
-  height: 250px;
-  border-radius: 8px;
+  width: calc(448px * var(--container-scale));
+  height: calc(336px * var(--container-scale));
+  border-radius: calc(8px * var(--container-scale));
   border: none;
   background: var(--border_container);
   transition: all 0.3s ease;
@@ -24,7 +41,7 @@
   right: 1.8px;
   bottom: 1.8px;
   background: var(--backgroundContainer);
-  border-radius: 6px;
+  border-radius: calc(6px * var(--container-scale));
   opacity: 1;
   animation: gradientIn 0.3s ease forwards;
 }

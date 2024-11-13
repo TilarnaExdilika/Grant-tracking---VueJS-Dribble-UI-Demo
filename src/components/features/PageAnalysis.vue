@@ -1,11 +1,15 @@
 <template>
-  <div>
+  <div class="page-analysis">
     <transition name="slide-fade">
       <HeaderAnalysis v-if="isVisible" />
     </transition>
+    <div class="div" style="height: 30px"></div>
     <transition name="slide-fade">
-      <PledgedCard v-if="isVisible" />
+      <div class="cards-container" v-if="isVisible">
+        <PledgedCard v-for="i in 3" :key="i" />
+      </div>
     </transition>
+    <div class="div" style="height: 200px"></div>
   </div>
 </template>
 
@@ -49,5 +53,25 @@ export default {
 .slide-fade-leave-to {
   transform: translateY(30px);
   opacity: 0;
+}
+
+.page-analysis {
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.page-analysis::-webkit-scrollbar {
+  display: none;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  padding-bottom: 40px;
 }
 </style>

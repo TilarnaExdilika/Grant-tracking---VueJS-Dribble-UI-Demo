@@ -1,5 +1,5 @@
 <template>
-  <BorderContainer>
+  <BorderContainer :size="1">
     <div class="pledged-content">
       <h3>Pledged Card</h3>
     </div>
