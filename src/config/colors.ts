@@ -20,6 +20,7 @@ export const colors: Colors = {
   button_gradient: 'linear-gradient(145deg, #2a2a2a, #3a3a3a)',
   border: '#4a4b57',
   border_gradient: 'linear-gradient(145deg, #4a4b57, #232428)',
+  border_container: '#3d3e48',
 
   // Base
   black: '#000000',

@@ -3,16 +3,21 @@
     <transition name="slide-fade">
       <HeaderAnalysis v-if="isVisible" />
     </transition>
+    <transition name="slide-fade">
+      <PledgedCard v-if="isVisible" />
+    </transition>
   </div>
 </template>
 
 <script>
 import HeaderAnalysis from './analysis/HeaderAnalysis.vue'
+import PledgedCard from './analysis/PledgedCard.vue'
 
 export default {
   name: 'PageAnalysis',
   components: {
-    HeaderAnalysis
+    HeaderAnalysis,
+    PledgedCard
   },
   data() {
     return {

@@ -13,6 +13,7 @@ export interface Colors {
   button_gradient: string
   border: string
   border_gradient: string
+  border_container: string
   // Base Colors
   black: string
   cyan: string
