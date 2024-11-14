@@ -2,6 +2,7 @@ export interface Colors {
   backgroundMain: string
   backgroundSecondary: string
   backgroundContainer: string
+  backgroundContainer2: string
   unactive_text: string
   active_text: string
   creator_button_color: string

@@ -48,6 +48,8 @@ defineProps({
   display: flex;
   flex-direction: column;
   gap: 1px;
+  padding-left: 12px;
+  padding-bottom: 12px;
 }
 
 .title-row {

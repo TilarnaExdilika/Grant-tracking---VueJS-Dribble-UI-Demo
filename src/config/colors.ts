@@ -5,6 +5,7 @@ export const colors: Colors = {
   backgroundMain: '#2a2a2a',
   backgroundSecondary: '#121212',
   backgroundContainer: '#28282a',
+  backgroundContainer2: '#303032',
 
   // Typography
   unactive_text: '#898b99',
