@@ -8,6 +8,7 @@
       <div class="cards-container" v-if="isVisible">
         <CardPledged />
         <CardGrant />
+        <CardCommit />
       </div>
     </transition>
     <transition name="slide-fade">
@@ -24,12 +25,14 @@
 import HeaderAnalysis from './analysis/HeaderAnalysis.vue'
 import CardPledged from './analysis/CardPledged.vue'
 import CardGrant from './analysis/CardGrant.vue'
+import CardCommit from './analysis/CardCommit.vue'
 export default {
   name: 'PageAnalysis',
   components: {
     HeaderAnalysis,
     CardPledged,
-    CardGrant
+    CardGrant,
+    CardCommit
   },
   data() {
     return {

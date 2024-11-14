@@ -1,8 +1,8 @@
 <template>
   <BorderContainer :size="1">
     <div class="pledged-content">
-      <TitleContainer iconTitle="fas fa-chart-pie" title="Grant amount ratio" symbol="%"
-        iconButton="fas fa-chevron-right" describe="Track and report on specific grant ratio" />
+      <TitleContainer iconTitle="fas fa-file-signature" title="Committed and actual balance" symbol="$M"
+        iconButton="fas fa-chevron-right" describe="Presents funds reserved for specific purposes" />
       <BorderCoverContainer class="content-wrapper">
         <!-- content -->
       </BorderCoverContainer>
