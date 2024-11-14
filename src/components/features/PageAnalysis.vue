@@ -6,7 +6,15 @@
     <div class="div" style="height: 30px"></div>
     <transition name="slide-fade">
       <div class="cards-container" v-if="isVisible">
-        <PledgedCard v-for="i in 3" :key="i" />
+        <PledgedCard />
+        <PledgedCard />
+        <PledgedCard />
+      </div>
+    </transition>
+    <transition name="slide-fade">
+      <div class="cards-container" v-if="isVisible">
+        <PledgedCard size="1.54" />
+        <PledgedCard size="1.54" />
       </div>
     </transition>
     <div class="div" style="height: 200px"></div>

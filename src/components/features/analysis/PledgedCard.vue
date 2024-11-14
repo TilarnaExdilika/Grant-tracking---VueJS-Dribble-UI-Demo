@@ -1,24 +1,19 @@
 <template>
   <BorderContainer :size="1">
     <div class="pledged-content">
-      <h3>Pledged Card</h3>
+      <TitleContainer iconTitle="fas fa-chart-pie" title="Pledged Card" symbol="24h" iconButton="fas fa-chevron-right"
+        describe="Total pledged amount tracking" />
     </div>
   </BorderContainer>
 </template>
 
 <script setup lang="ts">
 import BorderContainer from '@/components/common/BorderContainer.vue'
+import TitleContainer from '@/components/common/TitleContainer.vue'
 </script>
 
 <style scoped>
 .pledged-content {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-h3 {
-  margin: 0;
+  padding: 6px;
 }
 </style>
