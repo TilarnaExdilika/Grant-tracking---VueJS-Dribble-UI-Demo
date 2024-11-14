@@ -81,6 +81,6 @@ defineProps({
 
 .describe-row {
   color: var(--unactive_text);
-  font-size: 0.96rem;
+  font-size: 1rem;
 }
 </style>

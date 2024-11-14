@@ -21,10 +21,10 @@
         <span class="divider">/</span>
 
         <div class="quarter-selector">
-          <span class="quarter" :class="{ active: quarter === 'Q1' }">Q1</span>
-          <span class="quarter" :class="{ active: quarter === 'Q2' }">Q2</span>
-          <span class="quarter" :class="{ active: quarter === 'Q3' }">Q3</span>
-          <span class="quarter" :class="{ active: quarter === 'Q4' }">Q4</span>
+          <span v-for="q in ['Q1', 'Q2', 'Q3', 'Q4']" :key="q" class="quarter" :class="{ active: quarter === q }"
+            @click="selectQuarter(q)">
+            {{ q }}
+          </span>
         </div>
       </div>
 
@@ -75,6 +75,12 @@ export default {
     remainingMembers() {
       return Math.max(0, this.teamMembers.length - this.visibleMembers)
     }
+  },
+  methods: {
+    selectQuarter(q) {
+      this.quarter = q;
+      this.$emit('quarter-changed', q);
+    }
   }
 }
 </script>
@@ -118,10 +124,33 @@ export default {
   cursor: pointer;
   color: var(--unactive_text);
   padding: 4px 8px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.quarter::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--button_gradient);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.quarter:hover {
+  color: var(--active_text);
 }
 
 .quarter.active {
   color: var(--active_text);
+}
+
+.quarter.active::after {
+  width: 80%;
 }
 
 .program-toggle {

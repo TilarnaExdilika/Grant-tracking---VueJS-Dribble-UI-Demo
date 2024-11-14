@@ -6,15 +6,14 @@
     <div class="div" style="height: 30px"></div>
     <transition name="slide-fade">
       <div class="cards-container" v-if="isVisible">
-        <PledgedCard />
-        <PledgedCard />
-        <PledgedCard />
+        <CardPledged />
+        <CardGrant />
       </div>
     </transition>
     <transition name="slide-fade">
       <div class="cards-container" v-if="isVisible">
-        <PledgedCard size="1.54" />
-        <PledgedCard size="1.54" />
+        <CardPledged size="1.54" />
+        <CardPledged size="1.54" />
       </div>
     </transition>
     <div class="div" style="height: 200px"></div>
@@ -23,13 +22,14 @@
 
 <script>
 import HeaderAnalysis from './analysis/HeaderAnalysis.vue'
-import PledgedCard from './analysis/PledgedCard.vue'
-
+import CardPledged from './analysis/CardPledged.vue'
+import CardGrant from './analysis/CardGrant.vue'
 export default {
   name: 'PageAnalysis',
   components: {
     HeaderAnalysis,
-    PledgedCard
+    CardPledged,
+    CardGrant
   },
   data() {
     return {

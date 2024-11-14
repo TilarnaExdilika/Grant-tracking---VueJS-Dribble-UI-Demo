@@ -1,10 +1,10 @@
 <template>
   <BorderContainer :size="1">
     <div class="pledged-content">
-      <TitleContainer iconTitle="fas fa-chart-pie" title="Pledged Card" symbol="24h" iconButton="fas fa-chevron-right"
-        describe="Total pledged amount tracking" />
+      <TitleContainer iconTitle="fas fa-briefcase" title="Total pledged" symbol="$B" iconButton="fas fa-chevron-right"
+        describe="Refers to the aggregate sum of commitments" />
       <BorderCoverContainer class="content-wrapper">
-        <!-- Nội dung sẽ được thêm vào đây -->
+        <!-- content -->
       </BorderCoverContainer>
     </div>
   </BorderContainer>
