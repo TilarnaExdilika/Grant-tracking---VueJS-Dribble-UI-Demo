@@ -1,8 +1,9 @@
 <template>
   <BorderContainer :size="1">
     <div class="content">
-      <TitleContainer iconTitle="fas fa-chart-pie" title="Grant amount ratio" symbol="%"
-        iconButton="fas fa-chevron-right" describe="Track and report on specific grant ratio" />
+      <TitleContainer iconTitle="fas fa-scale-balanced" title="Grant requested vs. grant declined" symbol="$M"
+        iconButton1="fas fa-chevron-right" iconButton2="fas fa-ellipsis" iconButton3="fas fa-list-check"
+        describe="Help grantors evaluate the demand for their grant programs" />
       <BorderCoverContainer class="content-wrapper">
         <!-- content -->
       </BorderCoverContainer>

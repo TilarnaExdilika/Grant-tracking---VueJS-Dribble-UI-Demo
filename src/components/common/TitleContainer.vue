@@ -6,9 +6,17 @@
         <span v-if="title" class="title-text">{{ title }}</span>
         <span v-if="symbol" class="title-symbol">/ {{ symbol }}</span>
       </div>
-      <BorderButton v-if="iconButton" :active="true" :size="0.86">
-        <i :class="iconButton"></i>
-      </BorderButton>
+      <div class="title-right">
+        <BorderButton v-if="iconButton3" :active="button3Active" :size="0.86">
+          <i :class="iconButton3"></i>
+        </BorderButton>
+        <BorderButton v-if="iconButton2" :active="button2Active" :size="0.86">
+          <i :class="iconButton2"></i>
+        </BorderButton>
+        <BorderButton v-if="iconButton1" :active="button1Active" :size="0.86">
+          <i :class="iconButton1"></i>
+        </BorderButton>
+      </div>
     </div>
     <div v-if="describe" class="describe-row">
       {{ describe }}
@@ -32,13 +40,33 @@ defineProps({
     type: String,
     required: false
   },
-  iconButton: {
+  iconButton1: {
+    type: String,
+    required: false
+  },
+  iconButton2: {
+    type: String,
+    required: false
+  },
+  iconButton3: {
     type: String,
     required: false
   },
   describe: {
     type: String,
     required: false
+  },
+  button1Active: {
+    type: Boolean,
+    default: true
+  },
+  button2Active: {
+    type: Boolean,
+    default: false
+  },
+  button3Active: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
@@ -82,5 +110,11 @@ defineProps({
 .describe-row {
   color: var(--unactive_text);
   font-size: 1rem;
+}
+
+.title-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 </style>

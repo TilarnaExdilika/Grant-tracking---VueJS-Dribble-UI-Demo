@@ -1,7 +1,7 @@
 <template>
   <BorderContainer :size="1">
-    <div class="pledged-content">
-      <TitleContainer iconTitle="fas fa-briefcase" title="Total pledged" symbol="$B" iconButton="fas fa-chevron-right"
+    <div class="content">
+      <TitleContainer iconTitle="fas fa-briefcase" title="Total pledged" symbol="$B" iconButton1="fas fa-chevron-right"
         describe="Refers to the aggregate sum of commitments" />
       <BorderCoverContainer class="content-wrapper">
         <!-- content -->
@@ -17,7 +17,7 @@ import BorderCoverContainer from '@/components/common/BorderCoverContainer.vue'
 </script>
 
 <style scoped>
-.pledged-content {
+.content {
   padding: 2px;
   display: flex;
   flex-direction: column;
