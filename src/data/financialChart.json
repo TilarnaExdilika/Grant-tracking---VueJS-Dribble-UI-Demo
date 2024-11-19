@@ -1,0 +1,15 @@
+{
+  "total": 2385.43,
+  "average": 1.67,
+  "quarters": {
+    "LQ": {
+      "totalByQuarter": 1.23,
+      "foundations": 0.95
+    },
+    "Q3": {
+      "totalByQuarter": 2.38,
+      "foundations": 0.32,
+      "losses": -0.41
+    }
+  }
+}
