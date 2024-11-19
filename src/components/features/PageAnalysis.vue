@@ -14,7 +14,7 @@
     <transition name="slide-fade">
       <div class="cards-container" v-if="isVisible">
         <CardEvaluate size="1.54" />
-        <CardPledged size="1.54" />
+        <CardRedistribution size="1.54" />
       </div>
     </transition>
     <div class="div" style="height: 200px"></div>
@@ -27,6 +27,7 @@ import CardPledged from './analysis/CardPledged.vue'
 import CardGrant from './analysis/CardGrant.vue'
 import CardCommit from './analysis/CardCommit.vue'
 import CardEvaluate from './analysis/CardEvaluate.vue'
+import CardRedistribution from './analysis/CardRedistribution.vue'
 export default {
   name: 'PageAnalysis',
   components: {
@@ -34,7 +35,8 @@ export default {
     CardPledged,
     CardGrant,
     CardCommit,
-    CardEvaluate
+    CardEvaluate,
+    CardRedistribution
   },
   data() {
     return {

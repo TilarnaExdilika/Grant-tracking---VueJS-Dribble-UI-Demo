@@ -5,6 +5,9 @@
         iconButton="fas fa-chevron-right" describe="Presents funds reserved for specific purposes" />
       <BorderCoverContainer class="content-wrapper">
         <!-- content -->
+        <StripedContainer>
+
+        </StripedContainer>
       </BorderCoverContainer>
     </div>
   </BorderContainer>
@@ -14,6 +17,7 @@
 import BorderContainer from '@/components/common/BorderContainer.vue'
 import TitleContainer from '@/components/common/TitleContainer.vue'
 import BorderCoverContainer from '@/components/common/BorderCoverContainer.vue'
+import StripedContainer from '@/components/common/StripedContainer.vue'
 </script>
 
 <style scoped>
