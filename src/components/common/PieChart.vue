@@ -133,6 +133,7 @@ const resetSegment = () => {
   font-size: 24px;
   font-weight: 500;
   color: var(--active_text);
+  animation-delay: 0.1s;
 }
 
 .legend {
@@ -146,6 +147,35 @@ const resetSegment = () => {
   align-items: center;
   gap: 5px;
   color: var(--unactive_text);
+  animation-delay: 0.3s;
+}
+
+.legend-item:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.legend-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.legend-item:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.legend-item:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.legend-item:nth-child(5) {
+  animation-delay: 0.7s;
+}
+
+.legend-item:nth-child(6) {
+  animation-delay: 0.8s;
+}
+
+.legend-item:nth-child(7) {
+  animation-delay: 0.9s;
 }
 
 .value {
