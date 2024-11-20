@@ -5,7 +5,8 @@ export interface FinancialChartData {
     [key: string]: {
       totalByQuarter: number
       foundations: number
-      losses?: number
+      corporations: number
+      losses: number
     }
   }
 }

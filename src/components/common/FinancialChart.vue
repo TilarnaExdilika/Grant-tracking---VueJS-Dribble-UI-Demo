@@ -26,33 +26,53 @@
     </div>
 
     <StripedContainer class="chart-container">
-      <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" height="100%" viewBox="13 0 400 300" preserveAspectRatio="xMidYMid meet">
         <!-- Cột cho LQ -->
         <g>
-          <rect class="total-quarter-bar" x="80" :y="291 - getLQHeight()" width="60" :height="getLQHeight()" rx="8"
+          <!-- Cột total LQ (đầu tiên) -->
+          <rect class="total-quarter-bar" x="40" :y="291 - getLQHeight()" width="60" :height="getLQHeight()" rx="8"
             ry="8" />
-
-          <!-- Text LQ -->
-          <text x="110" :y="280 - getLQHeight()" class="column-label" dominant-baseline="middle">LQ</text>
-
-          <!-- Container số liệu bên trong cột -->
-          <rect class="data-container" x="83" :y="291 - getLQHeight() + 3" width="54" height="24" rx="4" ry="4" />
-          <text class="data-text" x="110" :y="291 - getLQHeight() + 20" text-anchor="middle">
+          <text x="70" :y="280 - getLQHeight()" class="column-label" dominant-baseline="middle">LQ</text>
+          <rect class="data-container" x="43" :y="291 - getLQHeight() + 3" width="54" height="24" rx="4" ry="4" />
+          <text class="data-text" x="70" :y="291 - getLQHeight() + 20" text-anchor="middle">
             {{ data.quarters.LQ.totalByQuarter }}
+          </text>
+
+          <!-- Cột foundation (thứ hai) -->
+          <rect class="foundation-bar" x="110" :y="291 - getLQFoundationHeight()" width="60"
+            :height="getLQFoundationHeight()" rx="8" ry="8" />
+          <rect class="data-container" x="113" :y="291 - getLQFoundationHeight() + 3" width="54" height="24" rx="4"
+            ry="4" />
+          <text class="data-text" x="140" :y="291 - getLQFoundationHeight() + 20" text-anchor="middle">
+            {{ data.quarters.LQ.foundations }}
+          </text>
+
+          <!-- Cột corporation (thứ ba) -->
+          <rect class="corporation-bar" x="180" :y="291 - getLQCorporationHeight()" width="60"
+            :height="getLQCorporationHeight()" rx="8" ry="8" />
+          <rect class="data-container" x="183" :y="291 - getLQCorporationHeight() + 3" width="54" height="24" rx="4"
+            ry="4" />
+          <text class="data-text" x="210" :y="291 - getLQCorporationHeight() + 20" text-anchor="middle">
+            {{ data.quarters.LQ.corporations }}
+          </text>
+
+          <!-- Cột losses (cuối cùng) -->
+          <rect class="losses-bar" x="250" :y="291 - getLQLossesHeight()" width="60" :height="getLQLossesHeight()"
+            rx="8" ry="8" />
+          <rect class="data-container" x="253" :y="291 - getLQLossesHeight() + 3" width="54" height="24" rx="4"
+            ry="4" />
+          <text class="data-text" x="280" :y="291 - getLQLossesHeight() + 20" text-anchor="middle">
+            {{ data.quarters.LQ.losses }}
           </text>
         </g>
 
-        <!-- Cột cho Q3 -->
+        <!-- Giữ nguyên cột Q3 -->
         <g>
-          <rect class="total-quarter-bar" x="240" :y="291 - getQ3Height()" width="60" :height="getQ3Height()" rx="8"
+          <rect class="total-quarter-bar" x="320" :y="291 - getQ3Height()" width="60" :height="getQ3Height()" rx="8"
             ry="8" />
-
-          <!-- Text Q3 -->
-          <text x="270" :y="280 - getQ3Height()" class="column-label" dominant-baseline="middle">Q3</text>
-
-          <!-- Container số liệu bên trong cột -->
-          <rect class="data-container" x="243" :y="291 - getQ3Height() + 3" width="54" height="24" rx="4" ry="4" />
-          <text class="data-text" x="270" :y="291 - getQ3Height() + 20" text-anchor="middle">
+          <text x="350" :y="280 - getQ3Height()" class="column-label" dominant-baseline="middle">Q3</text>
+          <rect class="data-container" x="323" :y="291 - getQ3Height() + 3" width="54" height="24" rx="4" ry="4" />
+          <text class="data-text" x="350" :y="291 - getQ3Height() + 20" text-anchor="middle">
             {{ data.quarters.Q3.totalByQuarter }}
           </text>
         </g>
@@ -70,11 +90,23 @@ const props = defineProps<{
 }>()
 
 const getLQHeight = () => {
-  return props.data.quarters.LQ.totalByQuarter * 100
+  return props.data.quarters.LQ.totalByQuarter * 70
 }
 
 const getQ3Height = () => {
-  return props.data.quarters.Q3.totalByQuarter * 100
+  return props.data.quarters.Q3.totalByQuarter * 70
+}
+
+const getLQFoundationHeight = () => {
+  return Math.abs(props.data.quarters.LQ.foundations * 70)
+}
+
+const getLQCorporationHeight = () => {
+  return Math.abs(props.data.quarters.LQ.corporations * 70)
+}
+
+const getLQLossesHeight = () => {
+  return Math.abs(props.data.quarters.LQ.losses * 70)
 }
 </script>
 
@@ -154,10 +186,23 @@ const getQ3Height = () => {
 
 .foundation-bar {
   fill: var(--green);
+  stroke: var(--green);
+  stroke-opacity: 0.9;
+  stroke-width: 3px;
+}
+
+.corporation-bar {
+  fill: var(--cyan);
+  stroke: var(--cyan);
+  stroke-opacity: 0.9;
+  stroke-width: 3px;
 }
 
 .losses-bar {
   fill: var(--darkBlue);
+  stroke: var(--darkBlue);
+  stroke-opacity: 0.9;
+  stroke-width: 3px;
 }
 
 .column-label {
