@@ -28,14 +28,34 @@
     <StripedContainer class="chart-container">
       <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
         <!-- Cột cho LQ -->
-        <rect class="total-quarter-bar" x="80" :y="291 - getLQHeight()" width="60" :height="getLQHeight()" rx="8"
-          ry="8" />
-        <text x="110" :y="281 - getLQHeight()" class="column-label" dominant-baseline="middle">LQ</text>
+        <g>
+          <rect class="total-quarter-bar" x="80" :y="291 - getLQHeight()" width="60" :height="getLQHeight()" rx="8"
+            ry="8" />
+
+          <!-- Text LQ -->
+          <text x="110" :y="280 - getLQHeight()" class="column-label" dominant-baseline="middle">LQ</text>
+
+          <!-- Container số liệu bên trong cột -->
+          <rect class="data-container" x="83" :y="291 - getLQHeight() + 3" width="54" height="24" rx="4" ry="4" />
+          <text class="data-text" x="110" :y="291 - getLQHeight() + 20" text-anchor="middle">
+            {{ data.quarters.LQ.totalByQuarter }}
+          </text>
+        </g>
 
         <!-- Cột cho Q3 -->
-        <rect class="total-quarter-bar" x="240" :y="291 - getQ3Height()" width="60" :height="getQ3Height()" rx="8"
-          ry="8" />
-        <text x="270" :y="281 - getQ3Height()" class="column-label" dominant-baseline="middle">Q3</text>
+        <g>
+          <rect class="total-quarter-bar" x="240" :y="291 - getQ3Height()" width="60" :height="getQ3Height()" rx="8"
+            ry="8" />
+
+          <!-- Text Q3 -->
+          <text x="270" :y="280 - getQ3Height()" class="column-label" dominant-baseline="middle">Q3</text>
+
+          <!-- Container số liệu bên trong cột -->
+          <rect class="data-container" x="243" :y="291 - getQ3Height() + 3" width="54" height="24" rx="4" ry="4" />
+          <text class="data-text" x="270" :y="291 - getQ3Height() + 20" text-anchor="middle">
+            {{ data.quarters.Q3.totalByQuarter }}
+          </text>
+        </g>
       </svg>
     </StripedContainer>
   </div>
@@ -143,6 +163,17 @@ const getQ3Height = () => {
 .column-label {
   fill: var(--active_text);
   text-anchor: middle;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.data-container {
+  fill: var(--backgroundMain);
+  fill-opacity: 0.2;
+}
+
+.data-text {
+  fill: var(--active_text);
   font-size: 14px;
   font-weight: 500;
 }
