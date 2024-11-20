@@ -25,7 +25,7 @@
           <g v-for="(segment, index) in segments" :key="'text-' + index">
             <rect class="value-container" :x="segment.labelX - 15" :y="segment.labelY - 12" width="30" height="24"
               rx="4" />
-            <text :x="segment.labelX" :y="segment.labelY" class="segment-value" fill="white">
+            <text :x="segment.labelX" :y="segment.labelY" class="segment-value" fill="white" dominant-baseline="middle">
               {{ segment.value }}
             </text>
           </g>
