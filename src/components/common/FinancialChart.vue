@@ -27,9 +27,7 @@
 
     <StripedContainer class="chart-container">
       <svg width="100%" height="100%" viewBox="13 0 400 300" preserveAspectRatio="xMidYMid meet">
-        <!-- Cột cho LQ -->
         <g>
-          <!-- Cột total LQ (đầu tiên) -->
           <rect class="total-quarter-bar" x="40" :y="291 - getLQHeight()" width="60" :height="getLQHeight()" rx="8"
             ry="8" />
           <text x="70" :y="280 - getLQHeight()" class="column-label" dominant-baseline="middle">LQ</text>
@@ -38,7 +36,6 @@
             {{ data.quarters.LQ.totalByQuarter }}
           </text>
 
-          <!-- Cột foundation (thứ hai) -->
           <rect class="foundation-bar" x="110" :y="291 - getLQHeight() - getLQFoundationHeight()" width="60"
             :height="getLQFoundationHeight()" rx="8" ry="8" />
           <rect class="data-container" x="113" :y="291 - getLQHeight() - getLQFoundationHeight() + 3" width="54"
@@ -47,7 +44,6 @@
             {{ data.quarters.LQ.foundations }}
           </text>
 
-          <!-- Cột corporation (thứ ba) -->
           <rect class="corporation-bar" x="180"
             :y="291 - getLQHeight() - getLQFoundationHeight() - getLQCorporationHeight()" width="60"
             :height="getLQCorporationHeight()" rx="8" ry="8" />
@@ -59,7 +55,6 @@
             {{ data.quarters.LQ.corporations }}
           </text>
 
-          <!-- Cột losses (cuối cùng) -->
           <rect class="losses-bar" x="250" :y="291 - getLQHeight() - getLQFoundationHeight() - getLQCorporationHeight()"
             width="60" :height="getLQLossesHeight()" rx="8" ry="8" />
           <rect class="data-container" x="253"
@@ -71,7 +66,6 @@
           </text>
         </g>
 
-        <!-- Giữ nguyên cột Q3 -->
         <g>
           <rect class="total-quarter-bar" x="320" :y="291 - getQ3Height()" width="60" :height="getQ3Height()" rx="8"
             ry="8" />
@@ -94,24 +88,47 @@ const props = defineProps<{
   data: FinancialChartData
 }>()
 
+const MIN_HEIGHT = 30
+
+const getMaxValue = () => {
+  const values = [
+    props.data.quarters.LQ.totalByQuarter,
+    Math.abs(props.data.quarters.LQ.foundations),
+    Math.abs(props.data.quarters.LQ.corporations),
+    Math.abs(props.data.quarters.LQ.losses),
+    props.data.quarters.Q3.totalByQuarter
+  ]
+  return Math.max(...values)
+}
+
+const getScale = () => {
+  const maxValue = getMaxValue()
+  return maxValue > 2 ? 230 / maxValue : 100
+}
+
 const getLQHeight = () => {
-  return props.data.quarters.LQ.totalByQuarter * 100
+  const height = props.data.quarters.LQ.totalByQuarter * getScale()
+  return Math.max(height, MIN_HEIGHT)
 }
 
 const getQ3Height = () => {
-  return props.data.quarters.Q3.totalByQuarter * 100
+  const height = props.data.quarters.Q3.totalByQuarter * getScale()
+  return Math.max(height, MIN_HEIGHT)
 }
 
 const getLQFoundationHeight = () => {
-  return Math.abs(props.data.quarters.LQ.foundations * 100)
+  const height = Math.abs(props.data.quarters.LQ.foundations) * getScale()
+  return Math.max(height, MIN_HEIGHT)
 }
 
 const getLQCorporationHeight = () => {
-  return Math.abs(props.data.quarters.LQ.corporations * 100)
+  const height = Math.abs(props.data.quarters.LQ.corporations) * getScale()
+  return Math.max(height, MIN_HEIGHT)
 }
 
 const getLQLossesHeight = () => {
-  return Math.abs(props.data.quarters.LQ.losses * 100)
+  const height = Math.abs(props.data.quarters.LQ.losses) * getScale()
+  return Math.max(height, MIN_HEIGHT)
 }
 </script>
 

@@ -5,8 +5,8 @@
     "LQ": {
       "totalByQuarter": 1.23,
       "foundations": 0.95,
-      "corporations": 0.4,
-      "losses": -0.8
+      "corporations": 0.32,
+      "losses": -0.41
     },
     "Q3": {
       "totalByQuarter": 2.38,
