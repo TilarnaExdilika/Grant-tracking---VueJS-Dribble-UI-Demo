@@ -10,3 +10,12 @@ export interface FinancialChartData {
     }
   }
 }
+
+export interface PieChartData {
+  total: number
+  areas: {
+    name: string
+    value: number
+    color: string
+  }[]
+}

@@ -4,7 +4,7 @@
       <TitleContainer iconTitle="fas fa-chart-pie" title="Grant amount ratio" symbol="%"
         iconButton="fas fa-chevron-right" describe="Track and report on specific grant ratio" />
       <BorderCoverContainer class="content-wrapper">
-        <!-- content -->
+        <PieChart :data="pieChartData" />
       </BorderCoverContainer>
     </div>
   </BorderContainer>
@@ -14,6 +14,11 @@
 import BorderContainer from '@/components/common/BorderContainer.vue'
 import TitleContainer from '@/components/common/TitleContainer.vue'
 import BorderCoverContainer from '@/components/common/BorderCoverContainer.vue'
+import PieChart from '@/components/common/PieChart.vue'
+import type { PieChartData } from '@/types/chart'
+import chartData from '@/data/pieChart.json'
+
+const pieChartData: PieChartData = chartData
 </script>
 
 <style scoped>

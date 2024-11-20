@@ -1,0 +1,30 @@
+{
+  "total": 100,
+  "areas": [
+    {
+      "name": "Welfare for all grants",
+      "value": 44,
+      "color": "#6C7A9C"
+    },
+    {
+      "name": "Melbourne grant",
+      "value": 19,
+      "color": "#93A0FF"
+    },
+    {
+      "name": "Liberty grant",
+      "value": 16,
+      "color": "#5BD0E4"
+    },
+    {
+      "name": "Inner city grant",
+      "value": 12,
+      "color": "#95D3BE"
+    },
+    {
+      "name": "Community grant",
+      "value": 9,
+      "color": "#5F6A88"
+    }
+  ]
+}
