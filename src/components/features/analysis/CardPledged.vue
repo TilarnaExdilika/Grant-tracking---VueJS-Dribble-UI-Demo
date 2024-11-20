@@ -4,7 +4,7 @@
       <TitleContainer iconTitle="fas fa-briefcase" title="Total pledged" symbol="$B" iconButton1="fas fa-chevron-right"
         describe="Refers to the aggregate sum of commitments" />
       <BorderCoverContainer class="content-wrapper">
-        <!-- content -->
+        <FinancialChart :data="chartData" />
       </BorderCoverContainer>
     </div>
   </BorderContainer>
@@ -14,6 +14,11 @@
 import BorderContainer from '@/components/common/BorderContainer.vue'
 import TitleContainer from '@/components/common/TitleContainer.vue'
 import BorderCoverContainer from '@/components/common/BorderCoverContainer.vue'
+import FinancialChart from '@/components/common/FinancialChart.vue'
+import type { ChartData } from '@/types/chart'
+import financialChartData from '@/data/financialChart.json'
+
+const chartData: ChartData = financialChartData
 </script>
 
 <style scoped>

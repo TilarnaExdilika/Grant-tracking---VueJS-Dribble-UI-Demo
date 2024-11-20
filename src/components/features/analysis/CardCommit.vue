@@ -4,7 +4,7 @@
       <TitleContainer iconTitle="fas fa-file-signature" title="Committed and actual balance" symbol="$M"
         iconButton="fas fa-chevron-right" describe="Presents funds reserved for specific purposes" />
       <BorderCoverContainer class="content-wrapper">
-        <FinancialChart :data="chartData" />
+
       </BorderCoverContainer>
     </div>
   </BorderContainer>
@@ -14,11 +14,7 @@
 import BorderContainer from '@/components/common/BorderContainer.vue'
 import TitleContainer from '@/components/common/TitleContainer.vue'
 import BorderCoverContainer from '@/components/common/BorderCoverContainer.vue'
-import FinancialChart from '@/components/common/FinancialChart.vue'
-import type { ChartData } from '@/types/chart'
-import financialChartData from '@/data/financialChart.json'
 
-const chartData: ChartData = financialChartData
 </script>
 
 <style scoped>
