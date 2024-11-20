@@ -3,7 +3,7 @@
     <div class="chart-info">
       <div class="info-group">
         <div class="total">{{ data.total }}</div>
-        <div class="average">{{ data.average }}</div>
+        <div class="average">{{ data.average }} average</div>
       </div>
       <div class="legend">
         <div class="legend-item">
@@ -26,19 +26,36 @@
     </div>
 
     <StripedContainer class="chart-container">
-      <!-- Phần chart mới sẽ được thêm vào đây -->
+      <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+        <!-- Cột cho LQ -->
+        <rect class="total-quarter-bar" x="80" :y="291 - getLQHeight()" width="60" :height="getLQHeight()" rx="8"
+          ry="8" />
+        <text x="110" :y="281 - getLQHeight()" class="column-label" dominant-baseline="middle">LQ</text>
+
+        <!-- Cột cho Q3 -->
+        <rect class="total-quarter-bar" x="240" :y="291 - getQ3Height()" width="60" :height="getQ3Height()" rx="8"
+          ry="8" />
+        <text x="270" :y="281 - getQ3Height()" class="column-label" dominant-baseline="middle">Q3</text>
+      </svg>
     </StripedContainer>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import type { ChartData } from '@/types/chart'
+import type { FinancialChartData } from '@/types/chart'
 import StripedContainer from './StripedContainer.vue'
 
-defineProps<{
-  data: ChartData
+const props = defineProps<{
+  data: FinancialChartData
 }>()
+
+const getLQHeight = () => {
+  return props.data.quarters.LQ.totalByQuarter * 100
+}
+
+const getQ3Height = () => {
+  return props.data.quarters.Q3.totalByQuarter * 100
+}
 </script>
 
 <style scoped>
@@ -51,7 +68,6 @@ defineProps<{
   padding: 20px;
   box-sizing: border-box;
 }
-
 
 .chart-container {
   flex: 1;
@@ -94,7 +110,7 @@ defineProps<{
 }
 
 .foundation {
-  background: var(--purple);
+  background: var(--green);
 }
 
 .corporation {
@@ -102,7 +118,7 @@ defineProps<{
 }
 
 .total-quarter {
-  background: var(--green);
+  background: var(--purple);
 }
 
 .losses {
@@ -110,26 +126,24 @@ defineProps<{
 }
 
 .total-quarter-bar {
-  fill: var(--green);
-  opacity: 0.8;
+  fill: var(--purple);
+  stroke: var(--purple);
+  stroke-opacity: 0.9;
+  stroke-width: 3px;
 }
 
 .foundation-bar {
-  fill: var(--purple);
-  opacity: 0.8;
+  fill: var(--green);
 }
 
 .losses-bar {
   fill: var(--darkBlue);
-  opacity: 0.8;
 }
 
-rect {
-  transition: all 0.3s ease;
-}
-
-rect:hover {
-  opacity: 1;
-  transform: scaleY(1.05);
+.column-label {
+  fill: var(--active_text);
+  text-anchor: middle;
+  font-size: 14px;
+  font-weight: 500;
 }
 </style>

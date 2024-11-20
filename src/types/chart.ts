@@ -1,4 +1,4 @@
-export interface ChartData {
+export interface FinancialChartData {
   total: number
   average: number
   quarters: {

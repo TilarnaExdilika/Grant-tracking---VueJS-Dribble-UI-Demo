@@ -15,10 +15,10 @@ import BorderContainer from '@/components/common/BorderContainer.vue'
 import TitleContainer from '@/components/common/TitleContainer.vue'
 import BorderCoverContainer from '@/components/common/BorderCoverContainer.vue'
 import FinancialChart from '@/components/common/FinancialChart.vue'
-import type { ChartData } from '@/types/chart'
+import type { FinancialChartData } from '@/types/chart'
 import financialChartData from '@/data/financialChart.json'
 
-const chartData: ChartData = financialChartData
+const chartData: FinancialChartData = financialChartData
 </script>
 
 <style scoped>
