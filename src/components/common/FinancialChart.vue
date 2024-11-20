@@ -3,8 +3,8 @@
     <div class="chart-wrapper">
       <div class="chart-info">
         <div class="info-group">
-          <div class="total">{{ data.total }}</div>
-          <div class="average">{{ data.average }} average</div>
+          <div class="total">${{ data.total }}</div>
+          <div class="average">${{ data.average }} average</div>
         </div>
 
         <div class="legend">
@@ -27,26 +27,28 @@
         </div>
       </div>
 
-      <!-- Chart -->
       <div class="chart-container">
-        <div class="chart-columns">
-          <div class="column">
-            <div class="quarter-label">LQ</div>
-            <div class="blocks">
-              <div class="block total-quarter">1.23</div>
-              <div class="block foundation" style="margin-left: 15px; margin-top: -30px">0.95</div>
-            </div>
-          </div>
+        <svg width="100%" height="100%" viewBox="0 0 800 200" preserveAspectRatio="none">
+          <!-- Grid lines -->
+          <line x1="0" y1="100" x2="800" y2="100" stroke="#3d3e48" stroke-width="1" stroke-dasharray="4 4" />
 
-          <div class="column">
-            <div class="quarter-label">Q3</div>
-            <div class="blocks">
-              <div class="block foundation" style="margin-left: -10px">0.32</div>
-              <div class="block losses" style="margin-left: 10px">-0.41</div>
-              <div class="block total-quarter" style="margin-left: 25px">2.38</div>
-            </div>
-          </div>
-        </div>
+          <!-- Quarters -->
+          <g v-for="(quarter, index) in Object.keys(data.quarters)" :key="quarter">
+            <g :transform="`translate(${index * 400}, 0)`">
+              <!-- Total by quarter -->
+              <rect :x="40" :y="100 - getBarHeight(data.quarters[quarter].totalByQuarter)" width="80"
+                :height="getBarHeight(data.quarters[quarter].totalByQuarter)" class="total-quarter-bar" rx="4" />
+
+              <!-- Foundations -->
+              <rect :x="140" :y="100 - getBarHeight(data.quarters[quarter].foundations)" width="80"
+                :height="getBarHeight(data.quarters[quarter].foundations)" class="foundation-bar" rx="4" />
+
+              <!-- Losses if exists -->
+              <rect v-if="data.quarters[quarter].losses" :x="240" y="100" width="80"
+                :height="getBarHeight(Math.abs(data.quarters[quarter].losses || 0))" class="losses-bar" rx="4" />
+            </g>
+          </g>
+        </svg>
       </div>
     </div>
   </div>
@@ -59,23 +61,23 @@ import type { ChartData } from '@/types/chart'
 defineProps<{
   data: ChartData
 }>()
+
+const getBarHeight = (value: number): number => {
+  const maxValue = 3.0
+  return (value / maxValue) * 100
+}
 </script>
 
 <style scoped>
-.financial-chart {
-  padding: 20px;
-  background: #2A2A2A;
-  border-radius: 12px;
-}
-
 .chart-wrapper {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   align-items: center;
+  padding: 20px;
 }
 
 .chart-info {
-  min-width: 200px;
+  min-width: 250px;
 }
 
 .info-group {
@@ -113,95 +115,47 @@ defineProps<{
   border-radius: 50%;
 }
 
+.foundation {
+  background: var(--purple);
+}
+
+.corporation {
+  background: var(--cyan);
+}
+
+.total-quarter {
+  background: var(--green);
+}
+
+.losses {
+  background: var(--darkBlue);
+}
+
 .chart-container {
-  position: relative;
-  height: 70px;
-  flex-grow: 1;
+  height: 200px;
 }
 
-.chart-columns {
-  display: flex;
-  gap: 150px;
-  height: 100%;
-  align-items: flex-end;
+.total-quarter-bar {
+  fill: var(--green);
+  opacity: 0.8;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
+.foundation-bar {
+  fill: var(--purple);
+  opacity: 0.8;
 }
 
-.blocks {
-  position: relative;
-  height: 100%;
+.losses-bar {
+  fill: var(--darkBlue);
+  opacity: 0.8;
 }
 
-.block {
-  position: absolute;
-  width: 40px;
-  padding: 6px;
-  border-radius: 8px;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+rect {
+  transition: all 0.3s ease;
 }
 
-.block.total-quarter {
-  height: 45px;
-  background: rgba(83, 123, 234, 0.9);
-}
-
-.block.foundation {
-  height: 35px;
-  background: rgba(75, 192, 192, 0.9);
-}
-
-.block.losses {
-  height: 30px;
-  background: rgba(75, 75, 75, 0.9);
-}
-
-.quarter-label {
-  font-size: 11px;
-  position: absolute;
-  top: -20px;
-  color: var(--unactive_text);
-}
-
-/* LQ Column */
-.column:first-child .quarter-label {
-  left: 20px;
-}
-
-/* Q3 Column */
-.column:last-child .quarter-label {
-  left: 65px;
-}
-
-.column:first-child .block.total-quarter {
-  left: 0;
-}
-
-.column:first-child .block.foundation {
-  left: 35px;
-  top: 5px;
-}
-
-/* Q3 Column */
-.column:last-child .block.foundation {
-  left: -15px;
-  top: 0;
-}
-
-.column:last-child .block.losses {
-  left: 20px;
-  top: 0;
-}
-
-.column:last-child .block.total-quarter {
-  left: 55px;
+rect:hover {
+  opacity: 1;
+  transform: scaleY(1.05);
 }
 </style>
