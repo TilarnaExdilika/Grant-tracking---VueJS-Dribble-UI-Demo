@@ -8,8 +8,26 @@
       "corporations": 0.32,
       "losses": -0.41
     },
+    "Q1": {
+      "totalByQuarter": 3.23,
+      "foundations": 0.2,
+      "corporations": 0.26,
+      "losses": -0.16
+    },
+    "Q2": {
+      "totalByQuarter": 1.38,
+      "foundations": 0.26,
+      "corporations": 0.26,
+      "losses": -0.16
+    },
     "Q3": {
       "totalByQuarter": 2.38,
+      "foundations": 0.32,
+      "corporations": 0.32,
+      "losses": -0.41
+    },
+    "Q4": {
+      "totalByQuarter": 2.39,
       "foundations": 0.32,
       "corporations": 0.32,
       "losses": -0.41
