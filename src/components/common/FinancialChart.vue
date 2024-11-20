@@ -39,29 +39,34 @@
           </text>
 
           <!-- Cột foundation (thứ hai) -->
-          <rect class="foundation-bar" x="110" :y="291 - getLQFoundationHeight()" width="60"
+          <rect class="foundation-bar" x="110" :y="291 - getLQHeight() - getLQFoundationHeight()" width="60"
             :height="getLQFoundationHeight()" rx="8" ry="8" />
-          <rect class="data-container" x="113" :y="291 - getLQFoundationHeight() + 3" width="54" height="24" rx="4"
-            ry="4" />
-          <text class="data-text" x="140" :y="291 - getLQFoundationHeight() + 20" text-anchor="middle">
+          <rect class="data-container" x="113" :y="291 - getLQHeight() - getLQFoundationHeight() + 3" width="54"
+            height="24" rx="4" ry="4" />
+          <text class="data-text" x="140" :y="291 - getLQHeight() - getLQFoundationHeight() + 20" text-anchor="middle">
             {{ data.quarters.LQ.foundations }}
           </text>
 
           <!-- Cột corporation (thứ ba) -->
-          <rect class="corporation-bar" x="180" :y="291 - getLQCorporationHeight()" width="60"
+          <rect class="corporation-bar" x="180"
+            :y="291 - getLQHeight() - getLQFoundationHeight() - getLQCorporationHeight()" width="60"
             :height="getLQCorporationHeight()" rx="8" ry="8" />
-          <rect class="data-container" x="183" :y="291 - getLQCorporationHeight() + 3" width="54" height="24" rx="4"
-            ry="4" />
-          <text class="data-text" x="210" :y="291 - getLQCorporationHeight() + 20" text-anchor="middle">
+          <rect class="data-container" x="183"
+            :y="291 - getLQHeight() - getLQFoundationHeight() - getLQCorporationHeight() + 3" width="54" height="24"
+            rx="4" ry="4" />
+          <text class="data-text" x="210"
+            :y="291 - getLQHeight() - getLQFoundationHeight() - getLQCorporationHeight() + 20" text-anchor="middle">
             {{ data.quarters.LQ.corporations }}
           </text>
 
           <!-- Cột losses (cuối cùng) -->
-          <rect class="losses-bar" x="250" :y="291 - getLQLossesHeight()" width="60" :height="getLQLossesHeight()"
-            rx="8" ry="8" />
-          <rect class="data-container" x="253" :y="291 - getLQLossesHeight() + 3" width="54" height="24" rx="4"
-            ry="4" />
-          <text class="data-text" x="280" :y="291 - getLQLossesHeight() + 20" text-anchor="middle">
+          <rect class="losses-bar" x="250" :y="291 - getLQHeight() - getLQFoundationHeight() - getLQCorporationHeight()"
+            width="60" :height="getLQLossesHeight()" rx="8" ry="8" />
+          <rect class="data-container" x="253"
+            :y="291 - getLQHeight() - getLQFoundationHeight() - getLQCorporationHeight() + 3" width="54" height="24"
+            rx="4" ry="4" />
+          <text class="data-text" x="280"
+            :y="291 - getLQHeight() - getLQFoundationHeight() - getLQCorporationHeight() + 20" text-anchor="middle">
             {{ data.quarters.LQ.losses }}
           </text>
         </g>
@@ -90,23 +95,23 @@ const props = defineProps<{
 }>()
 
 const getLQHeight = () => {
-  return props.data.quarters.LQ.totalByQuarter * 70
+  return props.data.quarters.LQ.totalByQuarter * 100
 }
 
 const getQ3Height = () => {
-  return props.data.quarters.Q3.totalByQuarter * 70
+  return props.data.quarters.Q3.totalByQuarter * 100
 }
 
 const getLQFoundationHeight = () => {
-  return Math.abs(props.data.quarters.LQ.foundations * 70)
+  return Math.abs(props.data.quarters.LQ.foundations * 100)
 }
 
 const getLQCorporationHeight = () => {
-  return Math.abs(props.data.quarters.LQ.corporations * 70)
+  return Math.abs(props.data.quarters.LQ.corporations * 100)
 }
 
 const getLQLossesHeight = () => {
-  return Math.abs(props.data.quarters.LQ.losses * 70)
+  return Math.abs(props.data.quarters.LQ.losses * 100)
 }
 </script>
 
