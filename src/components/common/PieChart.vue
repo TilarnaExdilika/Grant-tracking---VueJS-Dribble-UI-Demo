@@ -15,7 +15,7 @@
     </div>
 
     <div class="pie-chart">
-      <svg width="200" height="200" viewBox="0 0 300 300">
+      <svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet">
         <g transform="translate(150, 150)">
           <circle class="center-container animate-fade-in" r="45" cx="0" cy="0" />
 
@@ -46,8 +46,8 @@ const props = defineProps<{
 }>()
 
 const segments = computed(() => {
-  const radius = 120
-  const offset = 2
+  const radius = window.innerWidth <= 480 ? 90 : window.innerWidth <= 768 ? 100 : 120
+  const offset = window.innerWidth <= 768 ? 1.5 : 2
   let startAngle = 1.5 * Math.PI
 
   return props.data.areas.map(area => {
@@ -120,9 +120,35 @@ const resetSegment = () => {
 }
 
 .pie-chart {
-  flex-shrink: 0;
+  flex-shrink: 1;
   width: 200px;
   height: 200px;
+  min-width: 100px;
+}
+
+.chart-info {
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Thêm media queries cho màn hình nhỏ */
+@media screen and (max-width: 768px) {
+  .financial-chart {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .pie-chart {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pie-chart {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 .segment {
