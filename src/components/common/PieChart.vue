@@ -17,12 +17,14 @@
     <div class="pie-chart">
       <svg width="200" height="200" viewBox="0 0 300 300">
         <g transform="translate(150, 150)">
-          <circle class="center-container" r="45" cx="0" cy="0" />
+          <circle class="center-container animate-fade-in" r="45" cx="0" cy="0" />
 
           <path v-for="(segment, index) in segments" :key="index" :d="segment.path" :fill="segment.color"
-            class="segment" @mouseenter="highlightSegment(index)" @mouseleave="resetSegment()">
+            class="segment animate-draw" :style="{ 'animation-delay': `${index * 0.2}s` }"
+            @mouseenter="highlightSegment(index)" @mouseleave="resetSegment()">
           </path>
-          <g v-for="(segment, index) in segments" :key="'text-' + index">
+          <g v-for="(segment, index) in segments" :key="'text-' + index" class="animate-fade-in"
+            :style="{ 'animation-delay': `${(index * 0.2) + 0.5}s` }">
             <rect class="value-container" :x="segment.labelX - 15" :y="segment.labelY - 12" width="30" height="24"
               rx="4" />
             <text :x="segment.labelX" :y="segment.labelY" class="segment-value" fill="white" dominant-baseline="middle">
@@ -274,5 +276,74 @@ const resetSegment = () => {
   fill: var(--backgroundMain);
   opacity: 0.2;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.2));
+}
+
+.animate-draw {
+  animation: drawSegment 1s ease-out forwards;
+  opacity: 0;
+  transform-origin: center;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes drawSegment {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.segment {
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.segment:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.value-container {
+  transition: all 0.3s ease;
+}
+
+.segment-value {
+  transition: all 0.3s ease;
+}
+
+.legend-item {
+  animation: slideIn 0.5s ease-out forwards;
+  animation-delay: calc(0.3s + (var(--index, 0) * 0.1s));
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 </style>

@@ -19,3 +19,26 @@ export interface PieChartData {
     color: string
   }[]
 }
+
+export interface BalanceChartData {
+  total: number
+  average: number
+  periods: {
+    [key: string]: {
+      committed: number
+      balanceActual: number
+      balanceBasic: number
+      percentageChange: string
+    }
+  }
+  legend: {
+    committed: LegendItem
+    balanceActual: LegendItem
+    balanceBasic: LegendItem
+  }
+}
+
+interface LegendItem {
+  name: string
+  color: string
+}

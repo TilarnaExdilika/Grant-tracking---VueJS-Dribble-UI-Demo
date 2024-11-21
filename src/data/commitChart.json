@@ -1,0 +1,32 @@
+{
+  "total": 997.19,
+  "average": 856.67,
+  "periods": {
+    "Now": {
+      "committed": 850,
+      "balanceActual": 650,
+      "balanceBasic": 300,
+      "percentageChange": "+13%"
+    },
+    "LQ": {
+      "committed": 800,
+      "balanceActual": 600,
+      "balanceBasic": 400,
+      "percentageChange": "-7%"
+    }
+  },
+  "legend": {
+    "committed": {
+      "name": "Committed (ACT)",
+      "color": "#93A0FF"
+    },
+    "balanceActual": {
+      "name": "Balance actual (ACT)",
+      "color": "#6C7A9C"
+    },
+    "balanceBasic": {
+      "name": "Balance basic (BUD)",
+      "color": "#95D3BE"
+    }
+  }
+}
