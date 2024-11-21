@@ -88,14 +88,21 @@ const segments = computed(() => {
 
 const highlightSegment = (index: number) => {
   const segments = document.querySelectorAll('.segment')
-  segments[index].setAttribute('transform', 'scale(1.05)')
+  const angle = (index * 2 * Math.PI / segments.length) + Math.PI / 2
+  const translateX = Math.cos(angle) * 15
+  const translateY = Math.sin(angle) * 15
+
+  segments[index].setAttribute('transform',
+    `translate(${translateX}, ${translateY})
+     scale(1.03)`
+  )
 }
 
 const resetSegment = () => {
   const segments = document.querySelectorAll('.segment')
-  segments.forEach(segment => {
-    segment.setAttribute('transform', 'scale(1)')
-  })
+  segments.forEach(segment =>
+    segment.setAttribute('transform', 'translate(0, 0) scale(1)')
+  )
 }
 </script>
 
@@ -119,12 +126,13 @@ const resetSegment = () => {
 }
 
 .segment {
-  transition: all 0.3s ease;
-  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.2));
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center;
+  cursor: pointer;
 }
 
 .segment:hover {
-  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.3));
+  filter: brightness(1.05) drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 .info-group {
@@ -312,7 +320,7 @@ const resetSegment = () => {
 }
 
 .segment {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
 }
 
@@ -322,11 +330,13 @@ const resetSegment = () => {
 }
 
 .value-container {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
 .segment-value {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
 .legend-item {
