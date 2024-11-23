@@ -131,7 +131,6 @@ const resetSegment = () => {
   min-width: 150px;
 }
 
-/* Thêm media queries cho màn hình nhỏ */
 @media screen and (max-width: 768px) {
   .financial-chart {
     padding: 10px;

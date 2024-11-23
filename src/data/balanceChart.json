@@ -17,15 +17,15 @@
   },
   "legend": {
     "committed": {
-      "name": "Committed (ACT)",
+      "name": "Committed",
       "color": "#93A0FF"
     },
     "balanceActual": {
-      "name": "Balance actual (ACT)",
+      "name": "Balance actual",
       "color": "#6C7A9C"
     },
     "balanceBasic": {
-      "name": "Balance basic (BUD)",
+      "name": "Balance basic",
       "color": "#95D3BE"
     }
   }
