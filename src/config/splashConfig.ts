@@ -1,3 +1,6 @@
+import logo from '@/assets/images/logo.png'
+import dribbleAuthor from '@/assets/images/dribble_author.png'
+
 interface SocialLink {
   icon: string
   text: string
@@ -15,10 +18,14 @@ interface SplashConfigType {
   uiCreditImagePath: string
 }
 
+const getImageUrl = (image: any): string => {
+  return typeof image === 'string' ? image : image.default || image
+}
+
 export const SplashConfig: SplashConfigType = {
   enable_splash: true,
   title: 'by Tilarna',
-  logoPath: '/src/assets/images/logo.png',
+  logoPath: getImageUrl(logo),
   logoHeight: 150,
   socialLinks: [
     {
@@ -39,5 +46,5 @@ export const SplashConfig: SplashConfigType = {
   ],
   uiCredit: 'UI Design by',
   uiCreditName: 'George Lov',
-  uiCreditImagePath: '/src/assets/images/dribble_author.png',
+  uiCreditImagePath: getImageUrl(dribbleAuthor),
 }
