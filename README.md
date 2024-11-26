@@ -87,7 +87,11 @@ The project uses the following packages:
 
 If you have any questions or suggestions, please reach out:
 
-[![GitHub](https://e7.pngegg.com/pngimages/551/770/png-clipart-github-pages-logo-repository-fork-github-mammal-cat-like-mammal.png)](https://github.com/TilarnaExdilika) GitHub: TilarnaExdilika
+<span style="background-color: white; border-radius: 50%; padding: 5px; display: inline-block;">
+  <a href="https://github.com/TilarnaExdilika">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/30px-GitHub_Invertocat_Logo.svg.png" alt="GitHub" width="30" height="30">
+  </a>
+</span> GitHub: TilarnaExdilika
 
 [![Facebook](https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/30px-Facebook_f_logo_%282021%29.svg.png?20210818083032)](https://www.facebook.com/IShino.Avery/) Phạm Anh
 
